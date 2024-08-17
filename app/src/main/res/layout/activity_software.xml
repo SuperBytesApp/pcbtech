@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.SoftwareActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <!-- Extra layout, add your additional elements here -->
+
+        <EditText
+            android:id="@+id/searchEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@drawable/search_view_bg"
+            android:hint="Search Software"
+            android:inputType="text"
+            android:drawableLeft="@drawable/ic_baseline_search_24"
+            android:drawablePadding="8dp" />
+
+        <!-- Extra layout, add your additional elements here -->
+
+    </LinearLayout>
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="10dp"-->
+<!--        android:orientation="vertical">-->
+
+<!--        &lt;!&ndash; Extra layout, add your additional elements here &ndash;&gt;-->
+<!--        <SearchView-->
+<!--            android:id="@+id/searchView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@drawable/search_view_bg"-->
+<!--            android:queryHint="Search Software"-->
+<!--            app:iconifiedByDefault="false" />-->
+<!--        &lt;!&ndash; Extra layout, add your additional elements here &ndash;&gt;-->
+
+<!--    </LinearLayout>-->
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/softrecycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</LinearLayout>

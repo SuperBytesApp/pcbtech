@@ -1,0 +1,64 @@
+<!-- res/layout/activity_address_input.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/editTextServiceAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Service Address"
+        android:padding="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/black_circle_stroke"
+        android:inputType="textMultiLine"
+        android:minLines="3"
+        android:gravity="top"/>
+
+    <EditText
+        android:id="@+id/editTextLandmark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/black_circle_stroke"
+        android:hint="Landmark"/>
+
+    <EditText
+        android:id="@+id/editTextPinCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/black_circle_stroke"
+        android:hint="Pin Code"
+        android:inputType="number"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose Area"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"/>
+
+
+    <Spinner
+        android:id="@+id/spinnerCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@drawable/black_circle_stroke"
+        android:layout_marginTop="16dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:background="@color/teal_200"
+        android:layout_marginTop="16dp"
+        android:text="Submit"/>
+</LinearLayout>

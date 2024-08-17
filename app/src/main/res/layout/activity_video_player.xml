@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".activity.VideoPlayerActivity">
+
+
+<!--    <com.google.android.exoplayer2.ui.PlayerView-->
+<!--        android:id="@+id/videoview"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"/>-->
+
+
+    <WebView
+        android:id="@+id/vedioweb"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+<!--    //-->
+<!--    //-->
+<!--    //        // Get the video URL from the intent-->
+<!--    //        val videoUrl = intent.getStringExtra("VIDEO_URL")-->
+<!--    //-->
+<!--    //        // Create or reuse the ExoPlayer instance-->
+<!--    //        if (::player.isInitialized) {-->
+<!--    //            player.release()-->
+<!--    //        }-->
+<!--    //        player = SimpleExoPlayer.Builder(this).build()-->
+<!--    //-->
+<!--    //        // Set the player to the PlayerView-->
+<!--    //        binding.videoview.player = player-->
+<!--    //-->
+<!--    //        // Create a MediaItem pointing to the video URI-->
+<!--    //        val videoUri = Uri.parse(videoUrl!!.trim())-->
+<!--    //        val mediaItem = MediaItem.fromUri(videoUri)-->
+<!--    //-->
+<!--    //        // Set the media item to be played-->
+<!--    //        player.setMediaItem(mediaItem)-->
+<!--    //-->
+<!--    //        // Prepare the player-->
+<!--    //        player.prepare()-->
+<!--    //-->
+<!--    //        // Start the playback-->
+<!--    //        player.play()-->
+<!--    //-->
+<!--    //        acquireWakeLock()-->
+<!--    //-->
+<!--    //    }-->
+<!--    //-->
+<!--    //-->
+<!--    //-->
+<!--    //    private fun acquireWakeLock() {-->
+<!--    //        val powerManager = getSystemService(Context.POWER_SERVICE) as PowerManager-->
+<!--    //        wakeLock = powerManager.newWakeLock(-->
+<!--    //            PowerManager.SCREEN_BRIGHT_WAKE_LOCK or PowerManager.ON_AFTER_RELEASE,-->
+<!--    //            "VideoPlaybackActivity:WakeLock"-->
+<!--    //        )-->
+<!--    //-->
+<!--    //        wakeLock?.acquire(100*60*1000L /*10 minutes*/)-->
+<!--    //-->
+<!--    //    }-->
+<!--    //-->
+<!--    //    private fun releaseWakeLock() {-->
+<!--    //        wakeLock?.release()-->
+<!--    //        wakeLock = null-->
+<!--    //    }-->
+<!--    //-->
+<!--    //    override fun onDestroy() {-->
+<!--    //        super.onDestroy()-->
+<!--    //        releaseWakeLock()-->
+<!--    //        player.release()-->
+<!--    //    }-->
+<!--    //-->
+<!--    //-->
+<!--    //-->
+<!--    //    override fun onPause() {-->
+<!--    //        super.onPause()-->
+<!--    //        player.release()-->
+<!--    //    }-->
+<!--    //-->
+<!--    //-->
+<!--    //-->
+<!--    //-->
+<!--    //-->
+<!--    //}-->

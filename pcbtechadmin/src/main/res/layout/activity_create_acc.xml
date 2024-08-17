@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:padding="15dp">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:foregroundGravity="center"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/logo"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:text="Create Account"
+            android:foregroundGravity="top"
+            android:gravity="center"
+            android:layout_marginStart="10dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        android:paddingStart="10dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:minHeight="56dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_edittext_bg" />
+
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:paddingStart="10dp"
+        android:inputType="textEmailAddress"
+        android:minHeight="56dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_edittext_bg" />
+
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:paddingStart="10dp"
+        android:inputType="textPassword"
+        android:minHeight="56dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_edittext_bg" />
+
+    <EditText
+        android:id="@+id/validityDateEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Number"
+        android:fontFamily="sans-serif-smallcaps"
+        android:minHeight="56dp"
+        android:paddingStart="10dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_edittext_bg" />
+
+
+    <RadioGroup
+        android:id="@+id/radioGroupOptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/radioButtonFull"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Full Access" />
+
+        <RadioButton
+            android:id="@+id/radioButtonMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Min Access" />
+
+
+    </RadioGroup>
+
+
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:fontFamily="sans-serif-smallcaps"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded_edittext_bg"
+        android:backgroundTint="@color/teal_200"
+        android:minHeight="56dp" />
+
+</LinearLayout>

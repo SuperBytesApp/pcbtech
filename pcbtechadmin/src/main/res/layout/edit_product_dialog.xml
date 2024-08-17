@@ -1,0 +1,196 @@
+<!-- edit_user_dialog.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+
+    <LinearLayout
+        android:id="@+id/editkite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:foregroundGravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/kite" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:foregroundGravity="top"
+            android:gravity="center"
+            android:text="Kite"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/editup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:foregroundGravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/app_icon" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:foregroundGravity="top"
+            android:gravity="center"
+            android:text="Upstox"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/editang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:foregroundGravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_angel_advisory" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:foregroundGravity="top"
+            android:gravity="center"
+            android:text="Angel One"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/newNameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_edittext_bg"
+        android:fontFamily="sans-serif-smallcaps"
+        android:hint="Name"
+        android:minHeight="56dp"
+        android:paddingStart="10dp" />
+
+    <EditText
+        android:id="@+id/newEmailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_edittext_bg"
+        android:hint="Price"
+        android:inputType="number"
+        android:minHeight="56dp"
+        android:paddingStart="10dp" />
+
+    <EditText
+        android:id="@+id/newPasswordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_edittext_bg"
+        android:fontFamily="sans-serif-smallcaps"
+        android:hint="Stock"
+        android:inputType="number"
+        android:minHeight="56dp"
+        android:paddingStart="10dp" />
+
+    <EditText
+        android:id="@+id/newValidityEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_edittext_bg"
+        android:fontFamily="sans-serif-smallcaps"
+        android:hint="Description"
+        android:minHeight="56dp"
+        android:paddingStart="10dp" />
+
+
+    <EditText
+        android:id="@+id/pimg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_edittext_bg"
+        android:ems="10"
+        android:focusable="false"
+        android:visibility="gone"
+        android:fontFamily="sans-serif-smallcaps"
+        android:hint="pimg"
+        android:minHeight="56dp"
+        android:paddingStart="10dp" />
+
+
+    <EditText
+        android:id="@+id/pimg2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_edittext_bg"
+        android:ems="10"
+        android:focusable="false"
+        android:visibility="gone"
+        android:fontFamily="sans-serif-smallcaps"
+        android:hint="pimg2"
+        android:minHeight="56dp"
+        android:paddingStart="10dp" />
+
+
+    <EditText
+        android:id="@+id/pimg3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_edittext_bg"
+        android:ems="10"
+        android:visibility="gone"
+        android:focusable="false"
+        android:fontFamily="sans-serif-smallcaps"
+        android:hint="pimg3"
+        android:minHeight="56dp"
+        android:paddingStart="10dp" />
+
+
+</LinearLayout>

@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "575834287204",
+    "firebase_url": "https://pcb-course-f310d-default-rtdb.firebaseio.com",
+    "project_id": "pcb-course-f310d",
+    "storage_bucket": "pcb-course-f310d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:575834287204:android:5d2a5493070ae9cb888371",
+        "android_client_info": {
+          "package_name": "com.livedata.pcbtechadmin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBStvP4-GDMTl531JLPZBplHJ3xP8WYDgI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:575834287204:android:b0df0623f5b38af7888371",
+        "android_client_info": {
+          "package_name": "com.pcbtraining.pcb"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBStvP4-GDMTl531JLPZBplHJ3xP8WYDgI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

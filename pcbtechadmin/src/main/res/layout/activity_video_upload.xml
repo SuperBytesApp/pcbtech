@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/editTextUrl"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="16dp"
+        android:paddingStart="@dimen/payu_dimen_10dp"
+        android:hint="Enter Video SRC"
+        android:background="@drawable/edit_text_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextUrl"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="#4CAF50"
+        android:text="Submit"
+        android:layout_marginTop="@dimen/payu_dimen_10dp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextUrl" />
+
+
+    <Button
+        android:id="@+id/upload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextUrl"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="#2196F3"
+        android:text="Upload"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonSubmit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonSubmit"
+        app:layout_constraintTop_toTopOf="@+id/buttonSubmit" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/buttonSubmit"
+        android:layout_margin="@dimen/payu_dimen_10dp"
+        app:cardBackgroundColor="@color/black"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSubmit">
+
+
+        <TextView
+            android:id="@+id/code"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/payu_dimen_10dp"
+            android:textColor="@color/white" />
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+    <Button
+        android:id="@+id/copy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextUrl"
+        android:layout_toStartOf="@+id/buttonSubmit"
+        android:backgroundTint="#000000"
+        android:text="Copy code"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/webView"
+        app:layout_constraintTop_toTopOf="@+id/webView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

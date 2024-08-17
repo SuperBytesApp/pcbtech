@@ -1,0 +1,756 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:layout_marginStart="15dp"
+                            android:drawableStart="@drawable/homes"
+                            android:drawableTint="@color/teal_200"
+                            android:fontFamily="@font/semisans"
+                            android:gravity="bottom"
+                            android:text=" Hello, "
+                            android:textColor="#4E65E4"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/username"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:fontFamily="@font/sansmed"
+                            android:text="Guest"
+                            android:textColor="@color/black"
+                            android:textSize="18dp" />
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:layout_weight="1" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/account"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginRight="10dp"
+                        app:cardBackgroundColor="@color/teal_200"
+                        app:cardCornerRadius="100dp"
+                        app:cardElevation="0dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:padding="10dp"
+                                android:src="@drawable/ic_outline_account_circle_24"
+                                app:tint="@color/white" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="15dp"
+                                android:fontFamily="@font/semisans"
+                                android:text=" Login "
+                                android:textColor="@color/white" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/courseCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    app:cardBackgroundColor="@color/transparent"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="0dp">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            app:cardCornerRadius="10dp"
+                            app:cardElevation="0dp">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+
+                                <ImageView
+                                    android:id="@+id/thumbnail"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="160dp"
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/button_background"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="120dp"
+                                    android:adjustViewBounds="true"
+                                    android:src="@drawable/homepng"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="@+id/thumbnail"
+                                    app:lottie_autoPlay="true" />
+
+
+                                <TextView
+                                    android:id="@+id/textView2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10dp"
+                                    android:fontFamily="@font/medium"
+                                    android:text="Inverter AC PCB Repair Course"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="16sp"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                                <TextView
+                                    android:id="@+id/textView3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginTop="5dp"
+                                    android:fontFamily="@font/regular"
+                                    android:text="80+ Videos , 150+ Diagram , 30+ Software\nand 1year Update In PCB Repair Course"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="11dp"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+
+                                <com.airbnb.lottie.LottieAnimationView
+                                    android:id="@+id/lottieAnimationView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="130dp"
+                                    android:layout_marginEnd="10dp"
+                                    android:adjustViewBounds="true"
+                                    android:visibility="gone"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="@+id/thumbnail"
+                                    app:lottie_autoPlay="true"
+                                    app:lottie_loop="false"
+                                    app:lottie_rawRes="@raw/homelottie" />
+
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="40dp"
+                                    app:cardBackgroundColor="@color/teal_200"
+                                    app:cardCornerRadius="100dp"
+                                    app:cardElevation="0dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="@+id/textView3"
+                                    app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:orientation="horizontal">
+
+                                        <ImageView
+                                            android:layout_width="40dp"
+                                            android:layout_height="40dp"
+                                            android:padding="10dp"
+                                            android:src="@drawable/ic_baseline_star_24"
+                                            app:tint="@color/white" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginRight="15dp"
+                                            android:fontFamily="@font/semisans"
+                                            android:text="View Course"
+                                            android:textColor="@color/white" />
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="5dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/semisans"
+                                android:gravity="bottom"
+                                android:text="Inverter AC PCB Training Course "
+                                android:textColor="@color/black"
+                                android:textSize="16dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/imageView"
+                                android:layout_width="20dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                                app:layout_constraintBottom_toBottomOf="@+id/title"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/title" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@color/trance_back" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:fontFamily="@font/semisans"
+                    android:text="My Tools"
+                    android:textColor="@color/teal_200"
+                    android:textSize="17sp" />
+
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/payment"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="10sp"
+                        app:cardElevation="2dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/mycourse"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                            <pl.droidsonroids.gif.GifImageView
+                                android:id="@+id/gifImageView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="30dp"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/payment"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:fontFamily="@font/semisans"
+                                android:text="Payments"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="@+id/gifImageView"
+                                app:layout_constraintStart_toStartOf="@+id/gifImageView"
+                                app:layout_constraintTop_toBottomOf="@+id/gifImageView" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/mycourse"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="10sp"
+                        app:cardElevation="2dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                            <pl.droidsonroids.gif.GifImageView
+                                android:id="@+id/gifImageVieww"
+                                android:layout_width="wrap_content"
+                                android:layout_height="34dp"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/mycourse"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:fontFamily="@font/semisans"
+                                android:text="My Course"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="@+id/gifImageVieww"
+                                app:layout_constraintStart_toStartOf="@+id/gifImageVieww"
+                                app:layout_constraintTop_toBottomOf="@+id/gifImageVieww" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/support"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="10sp"
+                        app:cardElevation="2dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                            <pl.droidsonroids.gif.GifImageView
+                                android:id="@+id/gifImageVieww32"
+                                android:layout_width="wrap_content"
+                                android:layout_height="34dp"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/chat"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:fontFamily="@font/semisans"
+                                android:text="Support"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="@+id/gifImageVieww32"
+                                app:layout_constraintStart_toStartOf="@+id/gifImageVieww32"
+                                app:layout_constraintTop_toBottomOf="@+id/gifImageVieww32" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/refer"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="10sp"
+                        app:cardElevation="2dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/mycourse"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                            <pl.droidsonroids.gif.GifImageView
+                                android:id="@+id/gifImageView2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="30dp"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/refer"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:fontFamily="@font/semisans"
+                                android:text="refer"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="@+id/gifImageView2"
+                                app:layout_constraintStart_toStartOf="@+id/gifImageView2"
+                                app:layout_constraintTop_toBottomOf="@+id/gifImageView2" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="@+id/linearLayout"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/myorder"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="10sp"
+                        app:cardElevation="2dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                            <pl.droidsonroids.gif.GifImageView
+                                android:id="@+id/gifImageVieww2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="34dp"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/myorder"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:fontFamily="@font/semisans"
+                                android:text="My Orders"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="@+id/gifImageVieww2"
+                                app:layout_constraintStart_toStartOf="@+id/gifImageVieww2"
+                                app:layout_constraintTop_toBottomOf="@+id/gifImageVieww2" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/allproduct"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="10sp"
+                        app:cardElevation="2dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/mycourse"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                            <pl.droidsonroids.gif.GifImageView
+                                android:id="@+id/gifImageVie4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="35dp"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/allproduct"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:fontFamily="@font/semisans"
+                                android:text="All Products"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="@+id/gifImageVie4"
+                                app:layout_constraintStart_toStartOf="@+id/gifImageVie4"
+                                app:layout_constraintTop_toBottomOf="@+id/gifImageVie4" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/addcart"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        app:cardCornerRadius="10sp"
+                        app:cardElevation="2dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/mycourse"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                            <pl.droidsonroids.gif.GifImageView
+                                android:id="@+id/gifImageVie5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="35dp"
+                                android:adjustViewBounds="true"
+                                android:src="@drawable/cart"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:fontFamily="@font/semisans"
+                                android:text="My Cart"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="@+id/gifImageVie5"
+                                app:layout_constraintStart_toStartOf="@+id/gifImageVie5"
+                                app:layout_constraintTop_toBottomOf="@+id/gifImageVie5" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+
+
+
+                </LinearLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:fontFamily="@font/semisans"
+                        android:text="TOP PRODUCTS"
+                        android:textColor="@color/teal_200"
+                        android:textSize="17sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/seemore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:fontFamily="@font/medium"
+                        android:text="See More"
+                        android:textColor="#2196F3"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/textView"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/textView" />
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/productRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:fontFamily="@font/semisans"
+                    android:text="PCB DIAGRAMS"
+                    android:textColor="@color/teal_200"
+                    android:textSize="17sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
+                 <androidx.recyclerview.widget.RecyclerView
+                     android:id="@+id/homediagram"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/viewAllCourse"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="10dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="0dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/teal_200"
+                        android:fontFamily="@font/semisans"
+                        android:gravity="center"
+                        android:text="VIEW ALL DIAGRAM"
+                        android:textColor="@color/white"
+                        android:textSize="16dp" />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/viewAllsoftware"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="50dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="0dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/teal_200"
+                        android:fontFamily="@font/semisans"
+                        android:gravity="center"
+                        android:text="VIEW ALL PCBTECH SOFTWARE"
+                        android:textColor="@color/white"
+                        android:textSize="16dp" />
+                </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
