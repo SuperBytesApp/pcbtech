@@ -44,12 +44,7 @@ class MainActivity : AppCompatActivity() {
         )
         navView.setupWithNavController(navController)
 
-
-
-        binding.floating.setOnClickListener {
-           val intent = Intent(this, ProductActivity::class.java)
-            startActivity(intent)
-        }
+        binding.navView.itemIconTintList = null
 
 
 

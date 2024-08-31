@@ -105,7 +105,15 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireContext(), ProductActivity::class.java)
             startActivity(intent)
         }
+        binding.sellallproduct.setOnClickListener {
+            val intent = Intent(requireContext(), ProductActivity::class.java)
+            startActivity(intent)
+        }
         binding.courseCard.setOnClickListener {
+            val intent = Intent(requireContext(), CourseBuyActivity::class.java)
+            startActivity(intent)
+        }
+         binding.titlee.setOnClickListener {
             val intent = Intent(requireContext(), CourseBuyActivity::class.java)
             startActivity(intent)
         }
@@ -125,7 +133,7 @@ class HomeFragment : Fragment() {
         }
 
 
-        homediagram()
+//        homediagram()
 
 
 
@@ -196,39 +204,39 @@ class HomeFragment : Fragment() {
     }
 
 
-    fun homediagram(){
-
-
-        val database = FirebaseDatabase.getInstance()
-        val diagramRef = database.getReference("diagram")
-
-// ...
-
-// Set up RecyclerView
-        val adapter = AllDiagramAdapter(1) // You need to create this adapter
-        binding.homediagram.adapter = adapter
-        binding.homediagram.layoutManager = GridLayoutManager(requireContext(), 2, GridLayoutManager.VERTICAL,false)
-
-// Attach a listener to read the data
-        diagramRef.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val diagramList = mutableListOf<DiagramData>()
-
-                for (dataSnapshot in snapshot.children) {
-                    val diagram = dataSnapshot.getValue(DiagramData::class.java)
-                    diagram?.let { diagramList.add(it) }
-                }
-
-                adapter.submitList(diagramList)
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                // Handle error
-            }
-        })
-
-
-    }
+//    fun homediagram(){
+//
+//
+//        val database = FirebaseDatabase.getInstance()
+//        val diagramRef = database.getReference("diagram")
+//
+//// ...
+//
+//// Set up RecyclerView
+//        val adapter = AllDiagramAdapter(1) // You need to create this adapter
+//        binding.homediagram.adapter = adapter
+//        binding.homediagram.layoutManager = GridLayoutManager(requireContext(), 2, GridLayoutManager.VERTICAL,false)
+//
+//// Attach a listener to read the data
+//        diagramRef.addValueEventListener(object : ValueEventListener {
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//                val diagramList = mutableListOf<DiagramData>()
+//
+//                for (dataSnapshot in snapshot.children) {
+//                    val diagram = dataSnapshot.getValue(DiagramData::class.java)
+//                    diagram?.let { diagramList.add(it) }
+//                }
+//
+//                adapter.submitList(diagramList)
+//            }
+//
+//            override fun onCancelled(error: DatabaseError) {
+//                // Handle error
+//            }
+//        })
+//
+//
+//    }
 
 
 

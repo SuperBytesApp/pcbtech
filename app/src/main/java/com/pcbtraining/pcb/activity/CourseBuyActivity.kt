@@ -365,7 +365,8 @@ class CourseBuyActivity : AppCompatActivity() {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
+                    // Sign in success, update UI with the signed-in user
+                    // 's information
                     val user = auth.currentUser!!.uid.toString()
                     coursedb(user)
                     Toast.makeText(this, "Sign up successful. Please Wait Don't Back", Toast.LENGTH_LONG).show()

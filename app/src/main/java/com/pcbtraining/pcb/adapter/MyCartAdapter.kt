@@ -17,8 +17,14 @@ import com.pcbtraining.pcb.R
 import com.pcbtraining.pcb.activity.ProductInfoActivity
 import com.pcbtraining.pcb.model.Product
 
-class MyCartAdapter(private val productList: List<Product>, val context: Context) :
+class MyCartAdapter(private var productList: MutableList<Product>, val context: Context) :
     RecyclerView.Adapter<MyCartAdapter.ViewHolder>() {
+
+    fun updateProductList(newProductList: List<Product>) {
+        productList.clear()
+        productList.addAll(newProductList)
+        notifyDataSetChanged()
+    }
 
     fun getProductList(): List<Product> {
         return productList
@@ -33,9 +39,6 @@ class MyCartAdapter(private val productList: List<Product>, val context: Context
         val product = productList[position]
 
         holder.nameTextView.text = product.pname
-        holder.priceTextView.text = "₹" + product.pprice.toDouble().toString()
-
-        holder.nameTextView.text = product.pname
         holder.priceTextView.text = "₹" + (product.pprice.toDouble() * product.quantity).toString()
         holder.tvQuantity.text = product.quantity.toString()
 
@@ -44,7 +47,7 @@ class MyCartAdapter(private val productList: List<Product>, val context: Context
                 product.quantity--
                 holder.tvQuantity.text = product.quantity.toString()
                 holder.priceTextView.text = "₹" + (product.pprice.toDouble() * product.quantity).toString()
-                // Update Firebase database with new quantity
+                updateFirebaseQuantity(product)
             }
         }
 
@@ -52,41 +55,15 @@ class MyCartAdapter(private val productList: List<Product>, val context: Context
             product.quantity++
             holder.tvQuantity.text = product.quantity.toString()
             holder.priceTextView.text = "₹" + (product.pprice.toDouble() * product.quantity).toString()
-            // Update Firebase database with new quantity
+            updateFirebaseQuantity(product)
         }
 
         Glide.with(holder.itemView).load(product.pimg)
             .error(R.drawable.mtrl_ic_error) // Optional error image
             .into(holder.imageView)
 
-
         holder.remove.setOnClickListener {
-
-            val currentUser = FirebaseAuth.getInstance().currentUser
-            if (currentUser != null) {
-                val cartItemReference = FirebaseDatabase.getInstance().reference.child("mycart")
-                    .child(currentUser.uid).child(product.pdel)  // Assuming product.pkey is the push key
-
-                // Remove the entire node under the push key for the user
-                cartItemReference.removeValue().addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        // Entire node has been successfully deleted
-                        Toast.makeText(context, "Cart item removed", Toast.LENGTH_SHORT).show()
-                    } else {
-                        // Handle the error
-                        Toast.makeText(
-                            context,
-                            task.exception?.localizedMessage ?: "Error",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                }
-            } else {
-                // User not authenticated, handle accordingly
-                Toast.makeText(context, "User not authenticated", Toast.LENGTH_SHORT).show()
-            }
-
-
+            removeProductFromCart(product, position)
         }
 
         holder.itemView.setOnClickListener {
@@ -96,7 +73,50 @@ class MyCartAdapter(private val productList: List<Product>, val context: Context
             }
             context.startActivity(intent)
         }
+    }
 
+    private fun updateFirebaseQuantity(product: Product) {
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        currentUser?.let {
+            val cartItemReference = FirebaseDatabase.getInstance().reference.child("mycart")
+                .child(it.uid).child(product.pdel)  // Assuming product.pdel is the unique key
+
+            cartItemReference.child("quantity").setValue(product.quantity)
+        }
+    }
+
+    private fun removeProductFromCart(product: Product, position: Int) {
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        if (currentUser != null) {
+            val cartItemReference = FirebaseDatabase.getInstance().reference.child("mycart")
+                .child(currentUser.uid).child(product.pdel)
+
+            cartItemReference.removeValue().addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    // Ensure the position is valid
+                    if (position >= 0 && position < productList.size) {
+                        // Remove the product from the list
+                        productList.removeAt(position)
+                        // Notify the adapter about the item being removed
+                        notifyItemRemoved(position)
+                        notifyItemRangeChanged(position, productList.size)
+                        Toast.makeText(context, "Cart item removed", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(context, "Invalid position", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    // Handle the error
+                    Toast.makeText(
+                        context,
+                        task.exception?.localizedMessage ?: "Error removing item",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+        } else {
+            // User not authenticated, handle accordingly
+            Toast.makeText(context, "User not authenticated", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun getItemCount(): Int {
@@ -111,6 +131,5 @@ class MyCartAdapter(private val productList: List<Product>, val context: Context
         val btnDecrease: Button = itemView.findViewById(R.id.btnDecrease)
         val btnIncrease: Button = itemView.findViewById(R.id.btnIncrease)
         val tvQuantity: TextView = itemView.findViewById(R.id.tvQuantity)
-        // Add other TextViews for other product details
     }
 }

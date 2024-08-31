@@ -295,7 +295,7 @@
         <color name="switch_thumb_disabled_material_light">#ffbdbdbd</color>
         <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
         <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
-        <color name="teal_200">#3853E6</color>
+        <color name="teal_200">#3953e5</color>
         <color name="teal_700">#ff018786</color>
         <color name="test_color">#000</color>
         <color name="tooltip_background_dark">#e6616161</color>

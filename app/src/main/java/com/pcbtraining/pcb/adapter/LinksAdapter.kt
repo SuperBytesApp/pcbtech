@@ -27,11 +27,6 @@ class LinksAdapter(var context: Context, private var links: List<CourseItems>) :
         val link = links[position]
         holder.linkTextView.text = link.title
 
-        Glide.with(context)
-            .load(link.img)
-            .error(R.drawable.ic_baseline_ondemand_video_24) // Set your error placeholder drawable
-            .into(holder.img)
-
         holder.itemView.setOnClickListener {
 //                onItemClick(link)
 

@@ -59,10 +59,10 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:text=""
-        android:visibility="gone"
         android:textColor="@color/teal_200"
         android:textSize="15sp"
         android:textStyle="bold"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -74,10 +74,10 @@
         android:layout_margin="10dp"
         android:layout_marginTop="8dp"
         android:text=""
-        android:visibility="gone"
         android:textColor="@color/teal_200"
         android:textSize="12sp"
         android:textStyle="bold"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="@+id/textView2" />
 
@@ -87,10 +87,10 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text=""
-        android:visibility="gone"
         android:textColor="@color/teal_200"
         android:textSize="12sp"
         android:textStyle="bold"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/textView4"
         app:layout_constraintStart_toStartOf="@+id/textView4"
         app:layout_constraintTop_toTopOf="@+id/textView4" />
@@ -131,7 +131,6 @@
                     android:id="@+id/linearLayout4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/dimen_10"
                     android:orientation="vertical"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent">
@@ -139,80 +138,18 @@
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        app:cardCornerRadius="10dp"
                         app:cardElevation="0dp">
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
+
+                        <ImageView
+                            android:id="@+id/imageView6"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-
-                            <ImageView
-                                android:id="@+id/thumbnail"
-                                android:layout_width="match_parent"
-                                android:layout_height="160dp"
-                                android:scaleType="fitXY"
-                                android:src="@drawable/button_background"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="120dp"
-                                android:adjustViewBounds="true"
-                                android:src="@drawable/homepng"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="@+id/thumbnail"
-                                app:lottie_autoPlay="true" />
-
-
-                            <TextView
-                                android:id="@+id/textView22"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="10dp"
-                                android:fontFamily="@font/medium"
-                                android:text="Inverter AC PCB Repair Course"
-                                android:textColor="#FFFFFF"
-                                android:textSize="16sp"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-
-                            <TextView
-                                android:id="@+id/textView33"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="10dp"
-                                android:layout_marginTop="5dp"
-                                android:fontFamily="@font/regular"
-                                android:text="80+ Videos , 150+ Diagram , 30+ Software\nand 1year Update In PCB Repair Course"
-                                android:textColor="#FFFFFF"
-                                android:textSize="11dp"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/textView22" />
-
-
-                            <com.airbnb.lottie.LottieAnimationView
-                                android:id="@+id/lottieAnimationView"
-                                android:layout_width="wrap_content"
-                                android:layout_height="130dp"
-                                android:layout_marginEnd="10dp"
-                                android:adjustViewBounds="true"
-                                android:visibility="gone"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="@+id/thumbnail"
-                                app:lottie_autoPlay="true"
-                                app:lottie_loop="false"
-                                app:lottie_rawRes="@raw/homelottie" />
-
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/coursedescnew"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:lottie_autoPlay="true" />
 
                     </androidx.cardview.widget.CardView>
 
@@ -225,11 +162,11 @@
                             android:id="@+id/title"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_marginStart="5dp"
+                            android:layout_margin="5dp"
                             android:layout_weight="1"
-                            android:fontFamily="@font/semisans"
-                            android:gravity="bottom"
-                            android:text="Inverter AC PCB Training Course "
+                            android:fontFamily="@font/inter_bold"
+                            android:text="Inverter AC PCB Online Course With Life Time Support .(PCB TECH)"
+                            android:textAlignment="center"
                             android:textColor="@color/black"
                             android:textSize="16dp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -245,7 +182,7 @@
                         android:background="@color/trance_back" />
                 </LinearLayout>
 
-                <RelativeLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
@@ -255,95 +192,143 @@
                         android:id="@+id/tvTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
                         android:fontFamily="@font/semisans"
-                        android:text="PCB TECH (Noida Inverter AC Repair)"
+                        android:text="Discription"
                         android:textColor="@color/Black_Smooth"
                         android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/tvSubtitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/tvTitle"
-                        android:layout_marginBottom="16dp"
-                        android:text="Appliances Repair\nNoida (Uttar Pradesh)\n7520867718"
-                        android:textSize="16sp" />
+                        android:layout_marginTop="10dp"
+                        android:text="PCB TECH ऑनलाइन कोर्स में आप appliances पीसीबी में बेसिक से लेकर एडवांस लेवल तक पीसीबी रिपेयर करना सीखेंगे जैसे पीसीबी में लगने वाले कॉम्पोनेंट कैसे काम करते हैं, इनको कैसे चेक करना है, सर्किट कैसे काम करता है, सर्किट कैसे पढ़ना है, अलग अलग पीसीबी में सर्किट किस प्रकार बना हुआ है, कोन सा सर्किट किस काम को कर रहा है, सर्किट की कैलकुलेशन किस प्रकार करनी है, सिग्नल कैसे पढ़ना चाहिए, डीएसओ द्वारा सिग्नल को कैसे चेक करते हैं और वो सब कुछ इस कोर्स मे सिखाया गया है जिससे आप एक अच्छे पीसीबी रिपेयरिंग प्रोफेशनल (मैकेनिक) बन सकते हैं "
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvCoursesTitle" />
 
                     <TextView
                         android:id="@+id/tvCoursesTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/tvSubtitle"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="10dp"
                         android:fontFamily="@font/semisans"
-                        android:text="Inverter AC PCB Course"
+                        android:text="Welcome to the PCB TECH (Advance PCB Training Institute)"
+                        android:textAlignment="center"
                         android:textColor="@color/Black_Smooth"
                         android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
                     <TextView
                         android:id="@+id/tvBasicElectronics"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/tvCoursesTitle"
-                        android:layout_marginBottom="16dp"
-                        android:text="Basic Electronics\n1. All Components testing\n2. All Components working\n3. Components using\n4. Components Datasheet reading" />
+                        android:layout_marginTop="@dimen/dp_20"
+                        android:text="In PCB TECH online course, you will learn to repair PCB from basic to advanced level in appliances PCB like how the components used in PCB work, how to check them, how to repair the circuit, How to read a circuit, how is the circuit made in different PCBs, which circuit is doing what work, how to do the calculation of the circuit, how to read the signal, How to check the signal by DSO and all this is taught in this course which will help you to become a good PCB repairing professional(mechanic) "
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvSubtitle" />
 
-                    <TextView
-                        android:id="@+id/tvAdvancedCourseTitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/tvBasicElectronics"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="8dp"
-                        android:fontFamily="@font/semisans"
-                        android:text="Advance course"
-                        android:textColor="@color/Black_Smooth"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/tvAdvancedCourseDetails"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/tvAdvancedCourseTitle"
-                        android:layout_marginBottom="16dp"
-                        android:text="1. 10+ Inverter AC PCB circuit Explain (SMPS, AC LINK, DC LINK, I-SENSE, IPM etc)\n2. Voltage calculation in different types circuit\n3. SMPS Repairing\n4. Software programming\n5. Signal checking by mini DSO\n6. Full practical on PCB\n7. Soldering &amp; Desoldering station working &amp; explain\n8. After training support\n9. Components support\n10. Tools support" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <TextView
-                        android:id="@+id/tvAdditionalInfo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/tvAdvancedCourseDetails"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:text="80+ Videos\n150+ Diagram\n30+ Software\n1 Year update" />
 
-                    <TextView
-                        android:id="@+id/tvTrainingFeesTitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/tvAdditionalInfo"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="8dp"
-                        android:fontFamily="@font/semisans"
-                        android:text="Training Fees"
-                        android:textColor="@color/Black_Smooth"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_marginStart="@dimen/dp_10"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="Course Details"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
 
-                    <TextView
-                        android:id="@+id/tvTrainingFeesDetails"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/tvTrainingFeesTitle"
-                        android:layout_marginBottom="16dp"
-                        android:text="1. Registration fees- 2000/-. not refundable\n2. Training fees- 10000/\n3. Total fees - 12000/" />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/basicdetails"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:lottie_autoPlay="true" />
 
-                </RelativeLayout>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/completedetails"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:lottie_autoPlay="true" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/coursedetails"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:lottie_autoPlay="true" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/pcbdetails"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:lottie_autoPlay="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/dp_10"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="SUPPORT "
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/detailscourselife"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:lottie_autoPlay="true" />
+
+
+                 <ImageView
+                     android:id="@+id/buy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                     android:layout_marginTop="@dimen/dp_20"
+                    android:src="@drawable/buycoursenew"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:lottie_autoPlay="true" />
+
+
+
+
+
 
             </LinearLayout>
 
@@ -357,6 +342,7 @@
             android:layout_height="@dimen/dimes_70"
             android:background="@color/white"
             android:orientation="horizontal"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -366,7 +352,6 @@
                 android:layout_height="match_parent">
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/buy"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:layout_marginEnd="@dimen/dimen_20"
@@ -464,18 +449,15 @@
                     android:id="@+id/cross"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
                     android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
                     android:src="@drawable/ic_baseline_cancel_24_red"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
 
-
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 
             <EditText

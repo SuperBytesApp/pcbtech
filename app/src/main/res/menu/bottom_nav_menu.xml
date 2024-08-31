@@ -8,12 +8,8 @@
 
     <item
         android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/notinav"
-        android:title="@string/title_dashboard" />
-
-    <item
-        android:id="@+id/navigation_empty"
-        android:title="" />
+        android:icon="@drawable/notifynav"
+        android:title="Notification" />
 
     <item
         android:id="@+id/navigation_notifications"
@@ -22,7 +18,7 @@
 
     <item
         android:id="@+id/navigation_user"
-        android:icon="@drawable/ic_outline_account_circle_24"
+        android:icon="@drawable/usernavnew"
         android:title="Account" />
 
 
