@@ -125,6 +125,9 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireContext(), MyCartActivity::class.java)
             startActivity(intent)
         }
+        binding.upcomingcourse.setOnClickListener {
+             Toast.makeText(requireContext(), "Upcoming Course..", Toast.LENGTH_SHORT).show()
+        }
         binding.viewAllsoftware.setOnClickListener {
             if (access == "full"){ val intent = Intent(requireContext(), SoftwareActivity::class.java)
                 startActivity(intent)
