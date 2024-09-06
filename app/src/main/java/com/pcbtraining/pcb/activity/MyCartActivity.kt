@@ -181,9 +181,56 @@ class MyCartActivity : AppCompatActivity() {
         if (requestCode == 100) {
             data?.let {
                 val transactionState = it.getStringExtra("state")
-                Toast.makeText(this, "Payment State: $transactionState", Toast.LENGTH_SHORT).show()
+                if (transactionState == "SUCCESS") {
+                    Toast.makeText(this, "Payment Successful", Toast.LENGTH_SHORT).show()
+
+                    // Save the purchase details after payment success
+
+                } else {
+                    Toast.makeText(this, "Payment Failed: $transactionState", Toast.LENGTH_SHORT).show()
+                    savePurchaseData()
+                }
                 Log.i("PhonePePayment", "Transaction State: $transactionState")
             }
+        }
+    }
+    private fun savePurchaseData() {
+        val userId = FirebaseAuth.getInstance().currentUser!!.uid
+        // Create a unique key for each purchase
+        val purchaseId = FirebaseDatabase.getInstance().getReference("purchases").push().key
+        // Prepare the product details list to save
+        val productList = productAdapter.getProductList().map { product ->
+            mapOf(
+                "productName" to product.pname,
+                "quantity" to product.quantity,
+                "price" to product.pprice
+            )
+        }
+        // Retrieve the user's address from shared preferences
+        val addressData = retrieveAddressData()
+        // Create a map to store the entire purchase data
+        val purchaseData = mapOf(
+            "userId" to userId,
+            "products" to productList,
+            "totalCost" to totalCost,
+            "address" to mapOf(
+                "serviceAddress" to addressData.serviceAddress,
+                "landmark" to addressData.landmark,
+                "pinCode" to addressData.pinCode,
+                "category" to addressData.category
+            ),
+            "purchaseTime" to System.currentTimeMillis() // Add timestamp
+        )
+        // Save the purchase data in Firebase under the 'purchases' node
+        purchaseId?.let {
+            FirebaseDatabase.getInstance().getReference("purchases").child(it).setValue(purchaseData)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        Toast.makeText(this, "Purchase Data Saved Successfully", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this, "Failed to Save Purchase Data", Toast.LENGTH_SHORT).show()
+                    }
+                }
         }
     }
 }
