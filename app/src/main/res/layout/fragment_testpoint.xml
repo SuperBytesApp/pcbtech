@@ -15,7 +15,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="10dp"
-        android:src="@drawable/diagramviewnew"
+        android:src="@drawable/imagetestdata"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:lottie_autoPlay="true" />
@@ -64,29 +64,29 @@
 
 
     <!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_margin="10dp"-->
-<!--        android:orientation="vertical">-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_margin="10dp"-->
+    <!--        android:orientation="vertical">-->
 
-<!--        &lt;!&ndash; Extra layout, add your additional elements here &ndash;&gt;-->
+    <!--        &lt;!&ndash; Extra layout, add your additional elements here &ndash;&gt;-->
 
-<!--        <SearchView-->
-<!--            android:id="@+id/searchView"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:background="@drawable/search_view_bg"-->
-<!--            android:queryHint="Search by Diagram"-->
-<!--            app:iconifiedByDefault="false" />-->
+    <!--        <SearchView-->
+    <!--            android:id="@+id/searchView"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:background="@drawable/search_view_bg"-->
+    <!--            android:queryHint="Search by Diagram"-->
+    <!--            app:iconifiedByDefault="false" />-->
 
-<!--        &lt;!&ndash; Extra layout, add your additional elements here &ndash;&gt;-->
+    <!--        &lt;!&ndash; Extra layout, add your additional elements here &ndash;&gt;-->
 
-<!--    </LinearLayout>-->
+    <!--    </LinearLayout>-->
 
 
     <!-- TODO: Update blank fragment layout -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/diagrecycler"
+        android:id="@+id/testpointrecycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/hello_blank_fragment" />

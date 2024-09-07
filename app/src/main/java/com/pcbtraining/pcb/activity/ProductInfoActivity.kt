@@ -106,30 +106,6 @@ class ProductInfoActivity : AppCompatActivity() {
             totalPrice = product.pprice.toDouble() * quantity
             binding.cartAmount.text = "₹ $totalPrice"
 
-
-            binding.buyNow.setOnClickListener {
-                if (currentUser != null) {
-                    if (quantity > product.pstock.toInt()) {
-                        Toast.makeText(this, "Cannot proceed. Limited stock available.", Toast.LENGTH_SHORT).show()
-                    } else {
-
-                        val addressData = retrieveAddressData()
-                        val retrievedServiceAddress = addressData.serviceAddress
-                        val retrievedLandmark = addressData.landmark
-                        val retrievedPinCode = addressData.pinCode
-
-
-                       if (retrievedServiceAddress == "" && retrievedLandmark == "" && retrievedPinCode == ""){
-                           Toast.makeText(this, "Please Fill Your Full Address", Toast.LENGTH_SHORT).show()
-                           return@setOnClickListener
-                       }
-                        paymentSetup(product)
-                    }
-                } else {
-                    Toast.makeText(this, "You are not a subscribed member", Toast.LENGTH_SHORT).show()
-                }
-            }
-
             binding.addCart.setOnClickListener {
                 if (currentUser != null) {
                     if (quantity > product.pstock.toInt()) {

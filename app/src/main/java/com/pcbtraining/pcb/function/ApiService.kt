@@ -11,4 +11,12 @@ interface ApiService {
 
     @GET("pcbadmin/get_diag.php")
     suspend fun getDiagrams(): List<DiagramItem>
+
+    @GET("pcbadmin/get_svalue.php")
+    suspend fun getSensorvalue(): List<DiagramItem>
+
+   @GET("pcbadmin/get_imgtestpoint.php")
+    suspend fun getTestPoint(): List<DiagramItem>
+
+
 }

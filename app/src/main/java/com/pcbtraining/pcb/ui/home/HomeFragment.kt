@@ -18,6 +18,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.pcbtraining.pcb.R
 import com.pcbtraining.pcb.activity.AllDiagramActivity
+import com.pcbtraining.pcb.activity.AllDiagrampdfActivity
 import com.pcbtraining.pcb.activity.CourseBuyActivity
 import com.pcbtraining.pcb.activity.LoginActivity
 import com.pcbtraining.pcb.activity.MyCartActivity
@@ -26,6 +27,7 @@ import com.pcbtraining.pcb.activity.MyOrderActivity
 import com.pcbtraining.pcb.activity.PaymentHistoryActivity
 import com.pcbtraining.pcb.activity.ProductActivity
 import com.pcbtraining.pcb.activity.ReferActivity
+import com.pcbtraining.pcb.activity.SensorActivity
 import com.pcbtraining.pcb.activity.SoftwareActivity
 import com.pcbtraining.pcb.activity.SupportChatActivity
 import com.pcbtraining.pcb.adapter.AllDiagramAdapter
@@ -34,6 +36,7 @@ import com.pcbtraining.pcb.databinding.FragmentHomeBinding
 import com.pcbtraining.pcb.model.DiagramData
 import com.pcbtraining.pcb.model.Product
 import com.pcbtraining.pcb.model.User
+import com.pcbtraining.pcb.ui.frag.TestPointActivity
 
 class HomeFragment : Fragment() {
 
@@ -43,6 +46,7 @@ class HomeFragment : Fragment() {
     private lateinit var firebaseFirestore: FirebaseFirestore
     private lateinit var firebaseAuth: FirebaseAuth
     lateinit var access : String
+    lateinit var access2 : String
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -54,6 +58,7 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
         access =""
+        access2 =""
 
 
         binding.productRecyclerView.layoutManager = GridLayoutManager(context, 1,GridLayoutManager.HORIZONTAL,false)
@@ -134,6 +139,20 @@ class HomeFragment : Fragment() {
             }else if (access.isEmpty()){ Toast.makeText(requireContext(), "Your Are Not Subscribe Member", Toast.LENGTH_SHORT).show()
             }else{ Toast.makeText(requireContext(), "Your Are Not Subscribe Member", Toast.LENGTH_SHORT).show() }
         }
+         binding.sensordata.setOnClickListener {
+            if (access == "full"){ val intent = Intent(requireContext(), SensorActivity::class.java)
+                startActivity(intent)
+            }else if (access.isEmpty()){ Toast.makeText(requireContext(), "Your Are Not Subscribe Member", Toast.LENGTH_SHORT).show()
+            }else{ Toast.makeText(requireContext(), "Your Are Not Subscribe Member", Toast.LENGTH_SHORT).show() }
+        }
+        binding.imgtestpoint.setOnClickListener {
+            if (access == "full"){ val intent = Intent(requireContext(), TestPointActivity::class.java)
+                startActivity(intent)
+            }else if (access.isEmpty()){ Toast.makeText(requireContext(), "Your Are Not Subscribe Member", Toast.LENGTH_SHORT).show()
+            }else{ Toast.makeText(requireContext(), "Your Are Not Subscribe Member", Toast.LENGTH_SHORT).show() }
+        }
+
+
 
 
 //        homediagram()
@@ -157,7 +176,7 @@ class HomeFragment : Fragment() {
         binding.viewAllCourse.setOnClickListener {
 
             if (currentUser != null) {
-                val intent = Intent(requireContext(), AllDiagramActivity::class.java)
+                val intent = Intent(requireContext(), AllDiagrampdfActivity::class.java)
                 startActivity(intent)
 
             }else{
@@ -187,11 +206,12 @@ class HomeFragment : Fragment() {
                         val name = user.name
                         val email = user.email
                         val access1 = user.access
+                        val access11 = user!!.access2
                         val number = user.number
                         val uid = user.uid
 
                         access = access1.toString()
-
+                        access2 = access11.toString()
                         binding.username.text = name.toString()
 
                         // Use the retrieved data as needed

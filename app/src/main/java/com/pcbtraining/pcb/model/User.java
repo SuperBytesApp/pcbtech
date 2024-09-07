@@ -7,15 +7,18 @@ public class User {
     private String uid;
     private String email;
 
+    private String access2;
+
     public User(){}
 
 
-    public User(String name, String number, String access, String uid, String email) {
+    public User(String name, String number, String access, String uid, String email,String access2) {
         this.name = name;
         this.number = number;
         this.access = access;
         this.uid = uid;
         this.email = email;
+        this.access2 = access2;
     }
 
 
@@ -60,5 +63,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getAccess2() {
+        return access2;
+    }
+
+    public void setAccess2(String access2) {
+        this.access2 = access2;
     }
 }

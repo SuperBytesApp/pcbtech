@@ -916,6 +916,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/sensordata"
                     android:layout_width="match_parent"
                     android:layout_height="160dp"
                     android:layout_marginStart="10dp"
@@ -947,6 +948,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/imgtestpoint"
                     android:layout_width="match_parent"
                     android:layout_height="160dp"
                     android:layout_marginStart="10dp"

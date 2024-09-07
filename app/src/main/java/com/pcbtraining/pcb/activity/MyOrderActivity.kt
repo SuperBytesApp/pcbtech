@@ -13,9 +13,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.pcbtraining.pcb.R
-import com.pcbtraining.pcb.adapter.OrderHistoryAdapter
 import com.pcbtraining.pcb.databinding.ActivityMyOrderBinding
-import com.pcbtraining.pcb.model.Order
 
 class MyOrderActivity : AppCompatActivity() {
 
@@ -30,46 +28,43 @@ class MyOrderActivity : AppCompatActivity() {
         // Assuming you have a RecyclerView in your activity layout with the id "recyclerViewOrderHistory"
 
 
-
-        val currentUser = FirebaseAuth.getInstance().currentUser
-        if (currentUser != null) { order() }else{ Toast.makeText(this, "login required", Toast.LENGTH_SHORT).show() }
-
-
+        // Load user orders
+        loadUserOrders()
 
     }
 
-    fun order(){
+    private fun loadUserOrders() {
+        val userId = FirebaseAuth.getInstance().currentUser!!.uid
+        val databaseReference = FirebaseDatabase.getInstance().getReference("purchases").orderByChild("userId").equalTo(userId)
 
-        val recyclerView: RecyclerView = findViewById(R.id.myordershis)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-
-        orderList = mutableListOf()
-        // Get the current user's UID
-        val currentUserUid = FirebaseAuth.getInstance().currentUser!!.uid.toString()
-
-        // Set up the Firebase Database reference
-        databaseReference = FirebaseDatabase.getInstance().reference.child("orders").child(currentUserUid)
-
-        // Set up a ValueEventListener to fetch data
-        databaseReference.addValueEventListener(object : ValueEventListener {
+        databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                orderList.clear()
+                val ordersList = mutableListOf<Order>()
+                for (dataSnapshot in snapshot.children) {
+//                    val order = orderSnapshot.getValue(Order::class.java)
+                    val order = dataSnapshot.getValue(Order::class.java)
 
-                for (orderSnapshot in snapshot.children) {
-                    val order = orderSnapshot.getValue(Order::class.java)
-                    order?.let { orderList.add(it) }
+                    order?.let { ordersList.add(it) }
                 }
 
-                // Update the RecyclerView adapter with the new data
-                val adapter = OrderHistoryAdapter(orderList)
-                recyclerView.adapter = adapter
+                if (ordersList.isNotEmpty()) {
+                    setupOrdersRecyclerView(ordersList)
+                } else {
+                    Toast.makeText(this@MyOrderActivity, "No Orders Found", Toast.LENGTH_SHORT).show()
+                }
             }
 
             override fun onCancelled(error: DatabaseError) {
-                // Handle errors, if any
+                Toast.makeText(this@MyOrderActivity, "Failed to load orders: ${error.message}", Toast.LENGTH_SHORT).show()
             }
         })
-
     }
+
+    private fun setupOrdersRecyclerView(ordersList: List<Order>) {
+        val recyclerView = findViewById<RecyclerView>(R.id.myordershis)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = OrdersAdapter(ordersList)
+    }
+
 
 }

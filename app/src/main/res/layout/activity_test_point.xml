@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.AllDiagrampdfActivity"
+    tools:ignore="Orientation">
+    
+    
+    <androidx.cardview.widget.CardView
+        android:id="@+id/hideimagetestpoint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_gravity="center"
+        app:cardElevation="2dp"
+        app:cardCornerRadius="@dimen/dp_20">
+
+
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+           android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/diaggramnewview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/imagetestdata"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true" />
+            
+            
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_margin="10dp"
+                android:layout_height="wrap_content"
+                app:cardElevation="2dp"
+                app:cardCornerRadius="@dimen/dp_10">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="Total Price"
+                            android:textSize="14dp" />
+
+                        <TextView
+                            android:id="@+id/cartAmount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/semisans"
+                            android:text="Rs. 3,000"
+                            android:textColor="@color/black"
+                            android:textSize="26dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/addCart"
+                        android:layout_width="190dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/corner_back_grad"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="10dp"
+                            android:padding="5dp"
+                            android:src="@drawable/ic_outline_shopping_cart_24"
+                            app:tint="@color/white" />
+
+                        <TextView
+                            android:id="@+id/cartText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:fontFamily="@font/semisans"
+                            android:text="BUY"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="18dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+            </androidx.cardview.widget.CardView>
+            
+        
+        
+        </LinearLayout>
+        
+        
+        
+    </androidx.cardview.widget.CardView>
+    
+    
+    
+    
+    
+    
+
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/testpointfrag"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+    <!--    <androidx.recyclerview.widget.RecyclerView-->
+    <!--        android:id="@+id/allpdfrecy"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+
+
+</LinearLayout>

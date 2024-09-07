@@ -185,10 +185,10 @@ class MyCartActivity : AppCompatActivity() {
                     Toast.makeText(this, "Payment Successful", Toast.LENGTH_SHORT).show()
 
                     // Save the purchase details after payment success
+                    savePurchaseData()
 
                 } else {
                     Toast.makeText(this, "Payment Failed: $transactionState", Toast.LENGTH_SHORT).show()
-                    savePurchaseData()
                 }
                 Log.i("PhonePePayment", "Transaction State: $transactionState")
             }
@@ -233,4 +233,8 @@ class MyCartActivity : AppCompatActivity() {
                 }
         }
     }
+
+
+
+
 }
