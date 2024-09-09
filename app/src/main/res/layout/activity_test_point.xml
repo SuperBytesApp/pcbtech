@@ -15,6 +15,7 @@
         android:layout_margin="10dp"
         android:layout_gravity="center"
         app:cardElevation="2dp"
+        android:visibility="gone"
         app:cardCornerRadius="@dimen/dp_20">
 
 
@@ -120,18 +121,20 @@
         
         
     </androidx.cardview.widget.CardView>
-    
-    
-    
-    
-    
-    
 
 
-    <androidx.fragment.app.FragmentContainerView
+
+
+
+
+
+
+    <FrameLayout
         android:id="@+id/testpointfrag"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"
+        />
+
 
 
     <!--    <androidx.recyclerview.widget.RecyclerView-->

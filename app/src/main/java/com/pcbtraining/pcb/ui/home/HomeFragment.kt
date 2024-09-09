@@ -46,7 +46,6 @@ class HomeFragment : Fragment() {
     private lateinit var firebaseFirestore: FirebaseFirestore
     private lateinit var firebaseAuth: FirebaseAuth
     lateinit var access : String
-    lateinit var access2 : String
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -58,7 +57,6 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
         access =""
-        access2 =""
 
 
         binding.productRecyclerView.layoutManager = GridLayoutManager(context, 1,GridLayoutManager.HORIZONTAL,false)
@@ -206,12 +204,11 @@ class HomeFragment : Fragment() {
                         val name = user.name
                         val email = user.email
                         val access1 = user.access
-                        val access11 = user!!.access2
                         val number = user.number
                         val uid = user.uid
 
-                        access = access1.toString()
-                        access2 = access11.toString()
+                        access = access1
+
                         binding.username.text = name.toString()
 
                         // Use the retrieved data as needed
