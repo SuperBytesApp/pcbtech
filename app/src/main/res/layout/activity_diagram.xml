@@ -7,8 +7,8 @@
     tools:context=".activity.DiagramActivity">
 
 
-    <com.github.barteksc.pdfviewer.PDFView
-        android:id="@+id/pdfView"
+    <com.joanzapata.pdfview.PDFView
+        android:id="@+id/pdfview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"

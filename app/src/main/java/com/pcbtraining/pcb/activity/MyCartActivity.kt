@@ -63,7 +63,7 @@ class MyCartActivity : AppCompatActivity() {
             binding.buyButton.setOnClickListener {
                 val addressData = retrieveAddressData()
                 if (addressData.serviceAddress.isEmpty() || addressData.landmark.isEmpty() || addressData.pinCode.isEmpty()) {
-                    Toast.makeText(this, "Please Fill Your Full Address", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this,"Please Fill Your Full Address",Toast.LENGTH_SHORT).show()
                 } else {
                     phonepeCall()
                 }
@@ -137,6 +137,7 @@ class MyCartActivity : AppCompatActivity() {
             sharedPreferences.getString("serviceAddress", "") ?: "",
             sharedPreferences.getString("landmark", "") ?: "",
             sharedPreferences.getString("pinCode", "") ?: "",
+            sharedPreferences.getString("no", "") ?: "",
             sharedPreferences.getString("category", "") ?: ""
         )
     }
@@ -183,10 +184,8 @@ class MyCartActivity : AppCompatActivity() {
                 val transactionState = it.getStringExtra("state")
                 if (transactionState == "SUCCESS") {
                     Toast.makeText(this, "Payment Successful", Toast.LENGTH_SHORT).show()
-
                     // Save the purchase details after payment success
                     savePurchaseData()
-
                 } else {
                     Toast.makeText(this, "Payment Failed: $transactionState", Toast.LENGTH_SHORT).show()
                 }
@@ -217,6 +216,7 @@ class MyCartActivity : AppCompatActivity() {
                 "serviceAddress" to addressData.serviceAddress,
                 "landmark" to addressData.landmark,
                 "pinCode" to addressData.pinCode,
+                "no" to addressData.no,
                 "category" to addressData.category
             ),
             "purchaseTime" to System.currentTimeMillis() // Add timestamp
@@ -233,8 +233,4 @@ class MyCartActivity : AppCompatActivity() {
                 }
         }
     }
-
-
-
-
 }

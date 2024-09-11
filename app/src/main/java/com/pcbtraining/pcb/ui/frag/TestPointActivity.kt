@@ -191,7 +191,6 @@ class TestPointActivity : AppCompatActivity() {
                 // Define payment details
                 val price = "3000" // Replace with the actual price
                 val title = "PCB TECH Image Test Point" // Replace with the actual product title
-
                 // Add payment history to the database
                 addPaymentHistory(uid, price, title)
             }

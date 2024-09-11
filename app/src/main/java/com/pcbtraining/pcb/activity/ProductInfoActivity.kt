@@ -334,11 +334,11 @@ class ProductInfoActivity : AppCompatActivity() {
         val retrievedServiceAddress = addressData.serviceAddress
         val retrievedLandmark = addressData.landmark
         val retrievedPinCode = addressData.pinCode
+        val num = addressData.no
         val retrievedCategory = addressData.category
 
 
-        binding.location.text = "$retrievedCategory , $retrievedServiceAddress , $retrievedLandmark , $retrievedPinCode"
-
+        binding.location.text = "$retrievedCategory , $retrievedServiceAddress , $retrievedLandmark , $retrievedPinCode ,$num"
 
     }
 
@@ -346,9 +346,10 @@ class ProductInfoActivity : AppCompatActivity() {
         val serviceAddress = sharedPreferences.getString("serviceAddress", "") ?: ""
         val landmark = sharedPreferences.getString("landmark", "") ?: ""
         val pinCode = sharedPreferences.getString("pinCode", "") ?: ""
+        val no = sharedPreferences.getString("no", "") ?: ""
         val category = sharedPreferences.getString("category", "") ?: ""
 
-        return AddressData(serviceAddress, landmark, pinCode, category)
+        return AddressData(serviceAddress, landmark, pinCode,no ,category)
     }
 
 
@@ -403,10 +404,6 @@ class ProductInfoActivity : AppCompatActivity() {
                     }
                 }
         }
-
-
-
-
     }
 
 

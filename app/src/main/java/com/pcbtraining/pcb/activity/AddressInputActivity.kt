@@ -1,4 +1,5 @@
 package com.pcbtraining.pcb.activity
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -15,6 +16,7 @@ class AddressInputActivity : AppCompatActivity() {
 
     private lateinit var sharedPreferences: SharedPreferences
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_address_input)
@@ -27,6 +29,7 @@ class AddressInputActivity : AppCompatActivity() {
         val editTextServiceAddress: EditText = findViewById(R.id.editTextServiceAddress)
         val editTextLandmark: EditText = findViewById(R.id.editTextLandmark)
         val editTextPinCode: EditText = findViewById(R.id.editTextPinCode)
+       val phonenumber: EditText = findViewById(R.id.PhoneNumber)
         val spinnerCategory: Spinner = findViewById(R.id.spinnerCategory)
         val buttonSubmit: Button = findViewById(R.id.buttonSubmit)
 
@@ -41,11 +44,12 @@ class AddressInputActivity : AppCompatActivity() {
             val serviceAddress = editTextServiceAddress.text.toString().trim()
             val landmark = editTextLandmark.text.toString().trim()
             val pinCode = editTextPinCode.text.toString().trim()
+            val pno = phonenumber.text.toString().trim()
             val selectedCategory = spinnerCategory.selectedItem.toString()
 
             if (isValidInput(serviceAddress, landmark, pinCode)) {
                 // Store the data in SharedPreferences
-                storeAddressData(serviceAddress, landmark, pinCode, selectedCategory)
+                storeAddressData(serviceAddress, landmark, pinCode, selectedCategory,pno)
 
                 // TODO: You can perform other actions here, such as navigating to the next screen
             }
@@ -62,21 +66,24 @@ class AddressInputActivity : AppCompatActivity() {
         return true
     }
 
-    private fun storeAddressData(serviceAddress: String, landmark: String, pinCode: String, category: String) {
+    private fun storeAddressData(serviceAddress: String, landmark: String, pinCode: String, category: String,pno : String) {
         val editor = sharedPreferences.edit()
         editor.putString("serviceAddress", serviceAddress)
         editor.putString("landmark", landmark)
         editor.putString("pinCode", pinCode)
         editor.putString("category", category)
+        editor.putString("no", pno)
         editor.apply()
 
         val editTextServiceAddress: EditText = findViewById(R.id.editTextServiceAddress)
         val editTextLandmark: EditText = findViewById(R.id.editTextLandmark)
         val editTextPinCode: EditText = findViewById(R.id.editTextPinCode)
+        val phno: EditText = findViewById(R.id.PhoneNumber)
 
         editTextServiceAddress.text.clear()
         editTextPinCode.text.clear()
         editTextLandmark.text.clear()
+        phno.text.clear()
 
         Toast.makeText(this, "Address Added Successfully", Toast.LENGTH_SHORT).show()
     }
