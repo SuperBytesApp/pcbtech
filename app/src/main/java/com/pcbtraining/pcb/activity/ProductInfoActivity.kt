@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import android.view.View
 import android.view.WindowManager
 import android.webkit.WebView
 import android.widget.Toast
@@ -114,6 +115,8 @@ class ProductInfoActivity : AppCompatActivity() {
 
                         // cart store
                         addcart(product)
+                        binding.viewCart.visibility = View.VISIBLE
+                        binding.addCart.visibility = View.GONE
 
                     }
                 } else {
@@ -123,7 +126,9 @@ class ProductInfoActivity : AppCompatActivity() {
 
 
 
-
+            binding.viewCart.setOnClickListener {
+                val intent = Intent(this, MyCartActivity::class.java)
+                startActivity(intent) }
 
 
             val imageList = listOf(product.pimg, product.pimg2, product.pimg3)

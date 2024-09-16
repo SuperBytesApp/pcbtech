@@ -7,6 +7,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Base64
 import android.util.Log
+import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -37,6 +38,7 @@ class MyCartActivity : AppCompatActivity() {
 
     private var totalCost: Double = 0.0
     private var totalname: String = ""
+    private val shippingCharge: Double = 200.0 // Example shipping charge
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +59,21 @@ class MyCartActivity : AppCompatActivity() {
         mycart()
         getdetails()
 
+        binding.buydetailsscreen.visibility = View.GONE
+        binding.buyButton2.setOnClickListener { binding.buydetailsscreen.visibility = View.VISIBLE }
+        binding.swipeRefreshLayout.setOnClickListener { binding.buydetailsscreen.visibility = View.GONE }
+        binding.productRecyclerView.setOnClickListener { binding.buydetailsscreen.visibility = View.GONE }
+        binding.cancelButton.setOnClickListener { binding.buydetailsscreen.visibility = View.GONE }
+
+
+
+        binding.refund.setOnClickListener {
+            val url = "https://pcbtech.in/refundpolicy.html"
+            val intent = Intent(this, WebViewActivity::class.java)
+            intent.putExtra("url", url)
+            startActivity(intent)
+        }
+
         // Set up buy button click listener
         val currentUser = FirebaseAuth.getInstance().currentUser
         if (currentUser != null) {
@@ -65,6 +82,7 @@ class MyCartActivity : AppCompatActivity() {
                 if (addressData.serviceAddress.isEmpty() || addressData.landmark.isEmpty() || addressData.pinCode.isEmpty()) {
                     Toast.makeText(this,"Please Fill Your Full Address",Toast.LENGTH_SHORT).show()
                 } else {
+
                     phonepeCall()
                 }
             }
@@ -122,7 +140,10 @@ class MyCartActivity : AppCompatActivity() {
 
     private fun calculateTotalCost(): Double {
         totalCost = productAdapter.getProductList().sumOf { it.pprice.toDouble() * it.quantity }
+        totalCost += shippingCharge
+        binding.shippingChargeTextView.text = "Shipping Charge: ₹ $shippingCharge"
         binding.totalCostTextView.text = "Rs $totalCost"
+        updateUI(totalCost)
         return totalCost
     }
 
@@ -233,4 +254,12 @@ class MyCartActivity : AppCompatActivity() {
                 }
         }
     }
+
+
+    private fun updateUI(totalCost: Double) {
+       var a = totalCost - shippingCharge
+        binding.totalCostTextView2.text = "Total Cost: ₹ $a"
+        binding.finalTotalCostTextView.text = "Total: ₹ $totalCost"
+    }
+
 }

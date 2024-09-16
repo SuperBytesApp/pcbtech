@@ -53,14 +53,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/productRecyclerView"
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="match_parent"
+            android:padding="10dp">
+
+            <!-- Title -->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/productRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.761"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
@@ -100,7 +118,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/buyButton"
+            android:id="@+id/buyButton2"
             android:layout_width="190dp"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
@@ -123,7 +141,7 @@
                 android:layout_marginStart="2dp"
                 android:layout_marginEnd="5dp"
                 android:fontFamily="@font/semisans"
-                android:text="BUY"
+                android:text="Proceed"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="18dp"
@@ -133,6 +151,185 @@
         </LinearLayout>
     </LinearLayout>
 
+
+    <LinearLayout
+        android:id="@+id/buydetailsscreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:background="@drawable/default_scroll_handle_bottom"
+        app:cardElevation="2dp"
+        android:backgroundTint="#001FCB"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="-4dp"
+            tools:layout_editor_absoluteY="202dp">
+
+
+            <TextView
+                android:id="@+id/titleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/semibold"
+                android:text="Purchased Products"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/productRecyclerView" />
+
+
+            <!-- Total cost TextView -->
+            <TextView
+                android:id="@+id/totalCostTextView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_10"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/semisans"
+                android:text="Total Cost: Rs 0"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+            <!-- Shipping charge TextView -->
+            <TextView
+                android:id="@+id/shippingChargeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_10"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/semisans"
+                android:text="Shipping Charge: Rs 50"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/totalCostTextView" />
+
+            <TextView
+                android:id="@+id/gstChargeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_10"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/semisans"
+                android:text="Including GST Tax /-"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/totalCostTextView" />
+
+            <!-- Final total cost TextView -->
+            <TextView
+                android:id="@+id/finalTotalCostTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_10"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/semisans"
+                android:text="Total: Rs 0"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/shippingChargeTextView" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:id="@+id/cancelButton"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="end"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/selected_pin"
+                    android:backgroundTint="#C60000"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginEnd="5dp"
+                        android:fontFamily="@font/inter_bold"
+                        android:text="CANCEL"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="18dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/buyButton"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/selected_pin"
+                    android:backgroundTint="#00C621"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginEnd="5dp"
+                        android:fontFamily="@font/inter_bold"
+                        android:text="BUY"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="18dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/refund"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:gravity="center"
+                android:text="Refund Policy"
+                android:textColor="#ABACB1" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
 
 
 
