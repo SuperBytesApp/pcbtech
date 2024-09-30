@@ -394,6 +394,7 @@
                             android:layout_marginTop="8dp"
                             android:fontFamily="sans-serif-smallcaps"
                             android:text="Product List"
+                            android:textAlignment="center"
                             android:textColor="#464646"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -542,6 +543,7 @@
                             android:layout_marginTop="8dp"
                             android:fontFamily="sans-serif-smallcaps"
                             android:text="Video Upload"
+                            android:textAlignment="center"
                             android:textColor="#464646"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -690,6 +692,7 @@
                             android:layout_gravity="center"
                             android:layout_marginTop="8dp"
                             android:text="Add Product"
+                            android:textAlignment="center"
                             android:textColor="#464646"
                             android:fontFamily="sans-serif-smallcaps"
                             android:textSize="16sp"
@@ -720,6 +723,7 @@
                             android:layout_gravity="center"
                             android:layout_marginTop="8dp"
                             android:text="Add Diagram"
+                            android:textAlignment="center"
                             android:textColor="#464646"
                             android:fontFamily="sans-serif-smallcaps"
                             android:textSize="16sp"
@@ -761,6 +765,67 @@
                             android:layout_gravity="center"
                             android:layout_marginTop="8dp"
                             android:text="Add Software"
+                            android:textAlignment="center"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:textColor="#464646"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/addsenv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_edittext_bg"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <!-- Content for Column 2 -->
+                        <ImageView
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/logo" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="8dp"
+                            android:text="Add Senser Value"
+                            android:textAlignment="center"
+                            android:fontFamily="sans-serif-smallcaps"
+                            android:textColor="#464646"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/addimg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_edittext_bg"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <!-- Content for Column 2 -->
+                        <ImageView
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/logo" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="8dp"
+                            android:text="Add Img Test Point"
+                            android:textAlignment="center"
                             android:fontFamily="sans-serif-smallcaps"
                             android:textColor="#464646"
                             android:textSize="16sp"
