@@ -87,7 +87,14 @@ class MainActivity : AppCompatActivity() {
             intent = Intent(this,VideoUploadActivity::class.java)
             startActivity(intent)
         }
-
+        binding.addsenv.setOnClickListener {
+            intent = Intent(this, AddSenserValueActivity::class.java)
+            startActivity(intent)
+        }
+        binding.addimg.setOnClickListener {
+            intent = Intent(this, AddImgtestpointActivity::class.java)
+            startActivity(intent)
+        }
 
 
 

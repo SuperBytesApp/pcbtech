@@ -19,6 +19,12 @@
         android:theme="@style/Theme.PCB"
         tools:replace="android:theme">
         <activity
+            android:name=".AddImgtestpointActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddSenserValueActivity"
+            android:exported="false" />
+        <activity
             android:name=".CommunityActivity"
             android:exported="false" />
         <activity
