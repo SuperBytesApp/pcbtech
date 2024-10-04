@@ -96,7 +96,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
+        binding.orderlist.setOnClickListener {
+            intent = Intent(this, OrderProductActivity::class.java)
+            startActivity(intent)
+        }
 
 
 

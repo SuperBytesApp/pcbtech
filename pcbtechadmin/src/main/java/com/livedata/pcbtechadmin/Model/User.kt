@@ -7,5 +7,6 @@ data class User(
         val password: String = "",
         val number: String = "",
         val access: String = "" ,
+        val access2: String = "" ,
         val uid : String = ""
 )

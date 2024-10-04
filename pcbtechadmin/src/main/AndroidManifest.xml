@@ -19,6 +19,9 @@
         android:theme="@style/Theme.PCB"
         tools:replace="android:theme">
         <activity
+            android:name=".OrderProductActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddImgtestpointActivity"
             android:exported="false" />
         <activity

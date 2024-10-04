@@ -1,6 +1,7 @@
 <!-- edit_user_dialog.xml -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="15dp"
@@ -77,7 +78,6 @@
         android:id="@+id/editang"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         android:foregroundGravity="center"
         android:layout_marginBottom="20dp"
         android:orientation="horizontal">
@@ -86,14 +86,14 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
-            android:src="@drawable/ic_angel_advisory"/>
+            android:src="@drawable/logo"/>
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:text="Angel One"
+            android:text="User Details"
             android:foregroundGravity="top"
             android:gravity="center"
             android:layout_marginStart="10dp"
@@ -106,6 +106,17 @@
 
     </LinearLayout>
 
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:layout_marginBottom="8dp"
+        android:textSize="18sp"
+        android:fontFamily="@font/semibold"
+        android:textColor="@color/black"/>
+
     <EditText
         android:id="@+id/newNameEditText"
         android:layout_width="match_parent"
@@ -115,6 +126,15 @@
         android:minHeight="56dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_edittext_bg" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:layout_marginBottom="8dp"
+        android:textSize="18sp"
+        android:fontFamily="@font/semibold"
+        android:textColor="@color/black"/>
+
 
     <EditText
         android:id="@+id/newEmailEditText"
@@ -126,6 +146,15 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_edittext_bg" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password"
+        android:layout_marginBottom="8dp"
+        android:textSize="18sp"
+        android:fontFamily="@font/semibold"
+        android:textColor="@color/black"/>
+
     <EditText
         android:id="@+id/newPasswordEditText"
         android:layout_width="match_parent"
@@ -135,6 +164,15 @@
         android:minHeight="56dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_edittext_bg" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mob No."
+        android:layout_marginBottom="8dp"
+        android:textSize="18sp"
+        android:fontFamily="@font/semibold"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/phone"
@@ -148,15 +186,47 @@
         android:background="@drawable/rounded_edittext_bg" />
 
     <EditText
-        android:id="@+id/Access"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Access"
+        android:visibility="gone"
         android:paddingStart="10dp"
         android:minHeight="56dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_edittext_bg" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="All Access"
+        android:layout_marginBottom="8dp"
+        android:textSize="18sp"
+        android:fontFamily="@font/semibold"
+        android:textColor="@color/black"/>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Switch
+            android:id="@+id/Access"
+            android:layout_width="wrap_content"
+            android:text="Course Access  "
+            android:fontFamily="@font/regular"
+            android:layout_height="wrap_content"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+        <Switch
+            android:id="@+id/Access2"
+            android:layout_width="wrap_content"
+            android:text="Img Test Point Access  "
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/regular"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    </LinearLayout>
 
 
 

@@ -51,6 +51,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-database-ktx:20.1.0'
     implementation 'com.google.firebase:firebase-firestore-ktx:24.4.1'
     implementation 'com.google.firebase:firebase-storage-ktx:20.1.0'
+    implementation 'androidx.activity:activity:1.9.2'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
@@ -69,8 +70,8 @@ dependencies {
     implementation 'in.payu:payu-checkout-pro:2.0.2'
 
     // pdf
-
-    implementation 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
+//
+//    implementation 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
     implementation 'com.squareup.okhttp3:okhttp:4.9.1' // For network requests
 
 
