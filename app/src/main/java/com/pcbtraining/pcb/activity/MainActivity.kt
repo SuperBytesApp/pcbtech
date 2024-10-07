@@ -1,16 +1,20 @@
 package com.pcbtraining.pcb.activity
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
 import android.view.Display.FLAG_SECURE
 import android.view.KeyEvent
 import android.view.View
 import android.view.WindowManager
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
@@ -30,6 +34,59 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
+
+
+        val rootLayout = findViewById<ConstraintLayout>(R.id.container)
+
+        // Check if the device is in landscape mode
+        val isLandscape = resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+
+        // Check if the device is a tablet
+        val isTablet = (resources.configuration.screenLayout
+                and Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE
+
+        if (isTablet && isLandscape) {
+            // Set phone-like size in landscape mode on tablet
+            val params = rootLayout.layoutParams
+            params.width = resources.getDimensionPixelSize(R.dimen.phone_width)
+            params.height = resources.getDimensionPixelSize(R.dimen.phone_height)
+            rootLayout.layoutParams = params
+
+            // Center the layout programmatically using ConstraintSet
+            val constraintSet = ConstraintSet()
+            constraintSet.clone(rootLayout)
+
+            constraintSet.connect(
+                R.id.container, // The view we are setting constraints on (rootLayout in this case)
+                ConstraintSet.TOP,
+                ConstraintSet.PARENT_ID,
+                ConstraintSet.TOP
+            )
+
+            constraintSet.connect(
+                R.id.container,
+                ConstraintSet.BOTTOM,
+                ConstraintSet.PARENT_ID,
+                ConstraintSet.BOTTOM
+            )
+
+            constraintSet.connect(
+                R.id.container,
+                ConstraintSet.START,
+                ConstraintSet.PARENT_ID,
+                ConstraintSet.START
+            )
+
+            constraintSet.connect(
+                R.id.container,
+                ConstraintSet.END,
+                ConstraintSet.PARENT_ID,
+                ConstraintSet.END
+            )
+
+            // Apply the constraints
+            constraintSet.applyTo(rootLayout)
+        }
 
 
         val navView: BottomNavigationView = binding.navView

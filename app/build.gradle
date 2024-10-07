@@ -75,6 +75,7 @@ dependencies {
     implementation 'in.payu:payu-checkout-pro:2.0.2'
 
     // pdf
+    implementation 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
     implementation 'com.joanzapata.pdfview:android-pdfview:1.0.4@aar'
     implementation 'com.squareup.okhttp3:okhttp:4.9.1' // For network requests
 

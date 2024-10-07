@@ -9,4 +9,5 @@ data class User(
         val access: String = "" ,
         val access2: String = "" ,
         val uid : String = ""
+
 )

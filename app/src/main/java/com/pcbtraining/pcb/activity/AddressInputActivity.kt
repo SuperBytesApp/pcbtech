@@ -2,11 +2,13 @@ package com.pcbtraining.pcb.activity
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.WindowManager
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +24,7 @@ class AddressInputActivity : AppCompatActivity() {
         setContentView(R.layout.activity_address_input)
 
         window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
+
 
 
         sharedPreferences = getSharedPreferences("AddressPreferences", Context.MODE_PRIVATE)

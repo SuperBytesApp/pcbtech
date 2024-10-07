@@ -8,7 +8,8 @@ import android.util.Log
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.joanzapata.pdfview.PDFView
+import com.github.barteksc.pdfviewer.PDFView
+import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle
 import com.pcbtraining.pcb.R
 import java.io.BufferedInputStream
 import java.io.File
@@ -38,7 +39,7 @@ class DiagramActivity : AppCompatActivity() {
         }
 
         // Find the PDFView
-        pdfView = findViewById(R.id.pdfview)
+        pdfView = findViewById(R.id.pdfView)
 
         // Get the PDF URL from intent extras
         val pdfUrl = intent.getStringExtra("VIDEO_URL")
@@ -82,21 +83,34 @@ class DiagramActivity : AppCompatActivity() {
                 null
             }
         }
+
         override fun onPostExecute(result: File?) {
             dialog.dismiss()
             if (result != null) {
-                // Load the PDF using the new library
+                // Load the PDF using AndroidPdfViewer library
+
+                pdfView.maxZoom = 20.0f
                 pdfView.fromFile(result)
-                    .defaultPage(0)
-                    .showMinimap(false) // Disable minimap
-                    .enableSwipe(true)  // Enable swipe for navigation
-                    .swipeVertical(true) // Enable vertical swipe
-                    .onLoad { Log.d("PdfActivity", "PDF loaded successfully") }
+                    .defaultPage(0) // Open the first page by default
+                    .enableSwipe(true) // Allow swipe for navigation
+                    .swipeHorizontal(false) // Set vertical swipe
+                    .enableDoubletap(true) // Enable double-tap to zoom
+                    .scrollHandle(DefaultScrollHandle(this@DiagramActivity)) // Scroll handle
+                    .spacing(0) // No spacing between pages
+                    .enableAntialiasing(true) // Improve rendering quality
+                    .onLoad {
+                        Log.d("DiagramActivity", "PDF loaded successfully")
+                    }
+                    .onError {
+                        Toast.makeText(this@DiagramActivity, "Failed to load PDF", Toast.LENGTH_SHORT).show()
+                    }
+                    .onPageError { page, t ->
+                        Log.e("DiagramActivity", "Error on page $page: ${t.message}")
+                    }
                     .load()
             } else {
                 Toast.makeText(this@DiagramActivity, "Failed to load PDF", Toast.LENGTH_SHORT).show()
             }
         }
-
     }
 }
