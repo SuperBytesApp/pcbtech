@@ -17,6 +17,7 @@ import android.view.WindowManager
 import android.webkit.JavascriptInterface
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
@@ -77,59 +78,8 @@ class CourseBuyActivity : AppCompatActivity() {
         window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
 
 
-        val rootLayout = findViewById<ConstraintLayout>(R.id.courses)
 
-        // Check if the device is in landscape mode
-        val isLandscape = resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
-
-        // Check if the device is a tablet
-        val isTablet = (resources.configuration.screenLayout
-                and Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE
-
-        if (isTablet && isLandscape) {
-            // Set phone-like size in landscape mode on tablet
-            val params = rootLayout.layoutParams
-            params.width = resources.getDimensionPixelSize(R.dimen.phone_width)
-            params.height = resources.getDimensionPixelSize(R.dimen.phone_height)
-            rootLayout.layoutParams = params
-
-            // Center the layout programmatically using ConstraintSet
-            val constraintSet = ConstraintSet()
-            constraintSet.clone(rootLayout)
-
-            constraintSet.connect(
-                R.id.container, // The view we are setting constraints on (rootLayout in this case)
-                ConstraintSet.TOP,
-                ConstraintSet.PARENT_ID,
-                ConstraintSet.TOP
-            )
-
-            constraintSet.connect(
-                R.id.container,
-                ConstraintSet.BOTTOM,
-                ConstraintSet.PARENT_ID,
-                ConstraintSet.BOTTOM
-            )
-
-            constraintSet.connect(
-                R.id.container,
-                ConstraintSet.START,
-                ConstraintSet.PARENT_ID,
-                ConstraintSet.START
-            )
-
-            constraintSet.connect(
-                R.id.container,
-                ConstraintSet.END,
-                ConstraintSet.PARENT_ID,
-                ConstraintSet.END
-            )
-
-            // Apply the constraints
-            constraintSet.applyTo(rootLayout)
-        }
-
-
+        tabletscreencenter()
 
 
         auth = FirebaseAuth.getInstance()
@@ -441,5 +391,30 @@ class CourseBuyActivity : AppCompatActivity() {
     private fun convertINRToPaise(amountInINR: Int): Int {
         return amountInINR * 100
     }
+
+    fun tabletscreencenter(){
+        val rootLayout = findViewById<FrameLayout>(R.id.container)
+
+// Check if the device is in landscape mode
+        val isLandscape = resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+
+// Check if the device is a tablet
+        val isTablet = (resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE
+
+        if (isTablet && isLandscape) {
+            // Set phone-like size in landscape mode on tablet
+            val params = rootLayout.layoutParams
+            params.width = resources.getDimensionPixelSize(R.dimen.phone_width)
+            params.height = resources.getDimensionPixelSize(R.dimen.phone_height)
+            rootLayout.layoutParams = params
+
+            // Request layout update to apply changes
+            rootLayout.requestLayout()
+        }
+
+
+    }
+
+
 
 }

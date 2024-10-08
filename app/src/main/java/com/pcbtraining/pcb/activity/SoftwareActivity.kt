@@ -1,10 +1,12 @@
 package com.pcbtraining.pcb.activity
 
+import android.content.res.Configuration
 import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.widget.FrameLayout
 import android.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pcbtraining.pcb.R
@@ -34,6 +36,8 @@ class SoftwareActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.softrecycler.layoutManager = LinearLayoutManager(this)
+
+        tabletscreencenter()
 
         val diagramItems = ArrayList<SoftwareItems>()
         linksAdapter = SoftAdapter(this, diagramItems, diagramItems) { link ->
@@ -133,6 +137,28 @@ class SoftwareActivity : AppCompatActivity() {
         }
     }
 
+    fun tabletscreencenter(){
+        val rootLayout = findViewById<FrameLayout>(R.id.container)
+
+// Check if the device is in landscape mode
+        val isLandscape = resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+
+// Check if the device is a tablet
+        val isTablet = (resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE
+
+        if (isTablet && isLandscape) {
+            // Set phone-like size in landscape mode on tablet
+            val params = rootLayout.layoutParams
+            params.width = resources.getDimensionPixelSize(R.dimen.phone_width)
+            params.height = resources.getDimensionPixelSize(R.dimen.phone_height)
+            rootLayout.layoutParams = params
+
+            // Request layout update to apply changes
+            rootLayout.requestLayout()
+        }
+
+
+    }
 
 
 

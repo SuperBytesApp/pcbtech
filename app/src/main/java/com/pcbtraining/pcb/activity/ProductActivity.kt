@@ -3,11 +3,13 @@ package com.pcbtraining.pcb.activity
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.WindowManager
+import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.firebase.database.DataSnapshot
@@ -15,6 +17,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.pcbtraining.pcb.R
 import com.pcbtraining.pcb.adapter.ProductAdapter
 import com.pcbtraining.pcb.databinding.ActivityProductBinding
 import com.pcbtraining.pcb.model.AddressData
@@ -34,6 +37,7 @@ class ProductActivity : AppCompatActivity() {
 
         window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
 
+        tabletscreencenter()
 
 
         sharedPreferences = getSharedPreferences("AddressPreferences", Context.MODE_PRIVATE)
@@ -121,6 +125,29 @@ class ProductActivity : AppCompatActivity() {
         val category = sharedPreferences.getString("category", "") ?: ""
 
         return AddressData(serviceAddress,landmark,pinCode,no,category)
+    }
+
+    fun tabletscreencenter(){
+        val rootLayout = findViewById<FrameLayout>(R.id.container)
+
+// Check if the device is in landscape mode
+        val isLandscape = resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+
+// Check if the device is a tablet
+        val isTablet = (resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE
+
+        if (isTablet && isLandscape) {
+            // Set phone-like size in landscape mode on tablet
+            val params = rootLayout.layoutParams
+            params.width = resources.getDimensionPixelSize(R.dimen.phone_width)
+            params.height = resources.getDimensionPixelSize(R.dimen.phone_height)
+            rootLayout.layoutParams = params
+
+            // Request layout update to apply changes
+            rootLayout.requestLayout()
+        }
+
+
     }
 
 

@@ -4,11 +4,13 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Base64
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
+import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
@@ -58,6 +60,7 @@ class MyCartActivity : AppCompatActivity() {
         // Load the cart and get details
         mycart()
         getdetails()
+        tabletscreencenter()
 
         binding.buydetailsscreen.visibility = View.GONE
         binding.buyButton2.setOnClickListener { binding.buydetailsscreen.visibility = View.VISIBLE }
@@ -198,22 +201,65 @@ class MyCartActivity : AppCompatActivity() {
         return (amountInINR * 100).toInt()
     }
 
+    companion object {
+        const val PHONEPE_PAYMENT_REQUEST_CODE = 100
+        const val TRANSACTION_STATE_SUCCESS = "success"
+        const val TRANSACTION_STATE_FAILED = "failed"
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == 100) {
-            data?.let {
-                val transactionState = it.getStringExtra("state")
-                if (transactionState == "SUCCESS") {
-                    Toast.makeText(this, "Payment Successful", Toast.LENGTH_SHORT).show()
-                    // Save the purchase details after payment success
-                    savePurchaseData()
-                } else {
-                    Toast.makeText(this, "Payment Failed: $transactionState", Toast.LENGTH_SHORT).show()
-                }
-                Log.i("PhonePePayment", "Transaction State: $transactionState")
-            }
+
+        // Check if the result is from PhonePe payment request
+        if (requestCode == PHONEPE_PAYMENT_REQUEST_CODE) {
+            handlePhonePePaymentResult(data)
         }
     }
+
+    private fun handlePhonePePaymentResult(data: Intent?) {
+        // If the data is null, handle it early and return
+        if (data == null) {
+            Log.e("PhonePePayment", "Transaction data is null")
+            showToast("No data received from the transaction")
+            return
+        }
+
+        // Extract the transaction state
+        val transactionState = data.getStringExtra("state")?.trim()?.lowercase()
+        Log.i("PhonePePayment", "Transaction State: $transactionState")
+
+        // Check the transaction state and handle accordingly
+        when (transactionState) {
+            TRANSACTION_STATE_SUCCESS -> handlePaymentSuccess()
+            TRANSACTION_STATE_FAILED -> handlePaymentFailure(transactionState)
+            else -> handleUnexpectedState(transactionState)
+        }
+    }
+
+    private fun handlePaymentSuccess() {
+        showToast("Payment Successful")
+        Log.i("PhonePePayment", "Payment was successful. Saving purchase data.")
+        savePurchaseData()
+    }
+
+    private fun handlePaymentFailure(transactionState: String?) {
+        val errorMessage = "Payment Failed: $transactionState"
+        showToast(errorMessage)
+        Log.e("PhonePePayment", errorMessage)
+    }
+
+    private fun handleUnexpectedState(transactionState: String?) {
+        val errorMessage = "Unexpected Payment State: $transactionState"
+        showToast(errorMessage)
+        Log.w("PhonePePayment", errorMessage)
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+
+
     private fun savePurchaseData() {
         val userId = FirebaseAuth.getInstance().currentUser!!.uid
         // Create a unique key for each purchase
@@ -261,5 +307,31 @@ class MyCartActivity : AppCompatActivity() {
         binding.totalCostTextView2.text = "Total Cost: ₹ $a"
         binding.finalTotalCostTextView.text = "Total: ₹ $totalCost"
     }
+
+
+    fun tabletscreencenter(){
+        val rootLayout = findViewById<FrameLayout>(R.id.container)
+
+// Check if the device is in landscape mode
+        val isLandscape = resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+
+// Check if the device is a tablet
+        val isTablet = (resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE
+
+        if (isTablet && isLandscape) {
+            // Set phone-like size in landscape mode on tablet
+            val params = rootLayout.layoutParams
+            params.width = resources.getDimensionPixelSize(R.dimen.phone_width)
+            params.height = resources.getDimensionPixelSize(R.dimen.phone_height)
+            rootLayout.layoutParams = params
+
+            // Request layout update to apply changes
+            rootLayout.requestLayout()
+        }
+
+
+    }
+
+
 
 }

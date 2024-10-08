@@ -2,10 +2,12 @@ package com.pcbtraining.pcb.activity
 
 import android.annotation.SuppressLint
 import android.app.ProgressDialog
+import android.content.res.Configuration
 import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
 import android.view.WindowManager
+import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.github.barteksc.pdfviewer.PDFView
@@ -30,6 +32,9 @@ class DiagramActivity : AppCompatActivity() {
 
         // Disable screenshots and screen recording
         window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
+
+
+        tabletscreencenter()
 
         // Initialize ProgressDialog
         dialog = ProgressDialog(this).apply {
@@ -112,5 +117,29 @@ class DiagramActivity : AppCompatActivity() {
                 Toast.makeText(this@DiagramActivity, "Failed to load PDF", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+
+    fun tabletscreencenter(){
+        val rootLayout = findViewById<FrameLayout>(R.id.container)
+
+// Check if the device is in landscape mode
+        val isLandscape = resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+
+// Check if the device is a tablet
+        val isTablet = (resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE
+
+        if (isTablet && isLandscape) {
+            // Set phone-like size in landscape mode on tablet
+            val params = rootLayout.layoutParams
+            params.width = resources.getDimensionPixelSize(R.dimen.phone_width)
+            params.height = resources.getDimensionPixelSize(R.dimen.phone_height)
+            rootLayout.layoutParams = params
+
+            // Request layout update to apply changes
+            rootLayout.requestLayout()
+        }
+
+
     }
 }
