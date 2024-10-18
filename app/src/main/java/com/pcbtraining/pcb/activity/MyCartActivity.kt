@@ -125,6 +125,8 @@ class MyCartActivity : AppCompatActivity() {
                     val product = productSnapshot.getValue(Product::class.java)
                     product?.let { productList.add(it) }
                 }
+
+
                 productAdapter.updateProductList(productList)
                 calculateTotalCost()
             }
