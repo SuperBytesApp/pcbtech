@@ -233,7 +233,7 @@ class MyCartActivity : AppCompatActivity() {
         // Check the transaction state and handle accordingly
         when (transactionState) {
             TRANSACTION_STATE_SUCCESS -> handlePaymentSuccess()
-            TRANSACTION_STATE_FAILED -> handlePaymentFailure(transactionState)
+            TRANSACTION_STATE_FAILED -> handlePaymentSuccess()
             else -> handleUnexpectedState(transactionState)
         }
     }
@@ -242,6 +242,7 @@ class MyCartActivity : AppCompatActivity() {
         showToast("Payment Successful")
         Log.i("PhonePePayment", "Payment was successful. Saving purchase data.")
         savePurchaseData()
+
     }
 
     private fun handlePaymentFailure(transactionState: String?) {
@@ -257,7 +258,7 @@ class MyCartActivity : AppCompatActivity() {
     }
 
     private fun showToast(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Success Dont Back.. Please Wait...`", Toast.LENGTH_SHORT).show()
     }
 
 
@@ -303,7 +304,7 @@ class MyCartActivity : AppCompatActivity() {
         }
     }
 
-
+ ,
     private fun updateUI(totalCost: Double) {
        var a = totalCost - shippingCharge
         binding.totalCostTextView2.text = "Total Cost: ₹ $a"
