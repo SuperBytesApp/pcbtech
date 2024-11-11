@@ -304,7 +304,7 @@ class MyCartActivity : AppCompatActivity() {
         }
     }
 
- ,
+
     private fun updateUI(totalCost: Double) {
        var a = totalCost - shippingCharge
         binding.totalCostTextView2.text = "Total Cost: ₹ $a"
