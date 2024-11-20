@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -17,13 +16,10 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.firestore.FirebaseFirestore
-import com.pcbtraining.pcb.R
-import com.pcbtraining.pcb.activity.AllDiagramActivity
 import com.pcbtraining.pcb.activity.AllDiagrampdfActivity
 import com.pcbtraining.pcb.activity.CourseBuyActivity
 import com.pcbtraining.pcb.activity.LoginActivity
 import com.pcbtraining.pcb.activity.MyCartActivity
-import com.pcbtraining.pcb.activity.MyCourseActivity
 import com.pcbtraining.pcb.activity.MyOrderActivity
 import com.pcbtraining.pcb.activity.PaymentHistoryActivity
 import com.pcbtraining.pcb.activity.ProductActivity
@@ -31,10 +27,9 @@ import com.pcbtraining.pcb.activity.ReferActivity
 import com.pcbtraining.pcb.activity.SensorActivity
 import com.pcbtraining.pcb.activity.SoftwareActivity
 import com.pcbtraining.pcb.activity.SupportChatActivity
-import com.pcbtraining.pcb.adapter.AllDiagramAdapter
+import com.pcbtraining.pcb.WashingMCourseActivity
 import com.pcbtraining.pcb.adapter.ProductAdapter
 import com.pcbtraining.pcb.databinding.FragmentHomeBinding
-import com.pcbtraining.pcb.model.DiagramData
 import com.pcbtraining.pcb.model.Product
 import com.pcbtraining.pcb.model.User
 import com.pcbtraining.pcb.ui.frag.TestPointActivity
@@ -131,6 +126,8 @@ class HomeFragment : Fragment() {
         }
         binding.upcomingcourse.setOnClickListener {
              Toast.makeText(requireContext(), "Upcoming Course..", Toast.LENGTH_SHORT).show()
+            val intent = Intent(requireContext(), WashingMCourseActivity::class.java)
+            startActivity(intent)
         }
         binding.viewAllsoftware.setOnClickListener {
             if (access == "full"){ val intent = Intent(requireContext(), SoftwareActivity::class.java)

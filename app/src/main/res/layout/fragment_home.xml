@@ -379,6 +379,221 @@
                     android:layout_marginEnd="10dp"
                     android:orientation="horizontal">
 
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="vertical">-->
+
+<!--                        <GridLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:columnCount="2"-->
+<!--                            android:rowCount="2"-->
+<!--                            android:gap="16dp">-->
+
+<!--                            &lt;!&ndash; Card 1 &ndash;&gt;-->
+<!--                            <LinearLayout-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_columnWeight="1"-->
+<!--                                android:orientation="vertical"-->
+<!--                                android:background="@drawable/card_background"-->
+<!--                                android:padding="16dp"-->
+<!--                                android:layout_margin="5dp"-->
+<!--                                android:gravity="center">-->
+
+<!--                                <ImageView-->
+<!--                                    android:layout_width="100dp"-->
+<!--                                    android:layout_height="100dp"-->
+<!--                                    android:src="@drawable/wm"-->
+<!--                                    android:contentDescription="Refrigerator PCB Image"-->
+<!--                                    android:layout_gravity="center" />-->
+
+<!--                                <TextView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:text="Refrigerator PCB Repair Course"-->
+<!--                                    android:textStyle="bold"-->
+<!--                                    android:textColor="@color/black"-->
+<!--                                    android:textSize="16sp"-->
+<!--                                    android:gravity="center"-->
+<!--                                    android:paddingTop="8dp" />-->
+
+<!--                                <TextView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:text="Online Training with practical by PCB TECH"-->
+<!--                                    android:textColor="@color/blue"-->
+<!--                                    android:textSize="14sp"-->
+<!--                                    android:gravity="center"-->
+<!--                                    android:paddingTop="4dp" />-->
+
+<!--                                <Button-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:text="View Course"-->
+<!--                                    android:backgroundTint="@color/blue"-->
+<!--                                    android:textColor="@android:color/white"-->
+<!--                                    android:layout_gravity="center"-->
+<!--                                    android:paddingHorizontal="16dp"-->
+<!--                                    android:paddingVertical="4dp"-->
+<!--                                    android:layout_marginTop="8dp" />-->
+<!--                            </LinearLayout>-->
+
+<!--                            &lt;!&ndash; Card 2 &ndash;&gt;-->
+<!--                            <LinearLayout-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_columnWeight="1"-->
+<!--                                android:orientation="vertical"-->
+<!--                                android:layout_margin="5dp"-->
+<!--                                android:background="@drawable/card_background"-->
+<!--                                android:padding="16dp"-->
+<!--                                android:gravity="center">-->
+
+<!--                                <ImageView-->
+<!--                                    android:layout_width="100dp"-->
+<!--                                    android:layout_height="100dp"-->
+<!--                                    android:src="@drawable/washing_machine_image"-->
+<!--                                    android:contentDescription="Washing Machine PCB Image"-->
+<!--                                    android:layout_gravity="center" />-->
+
+<!--                                <TextView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:text="Washing Machine PCB Repair Course"-->
+<!--                                    android:textColor="@color/black"-->
+<!--                                    android:textStyle="bold"-->
+<!--                                    android:textSize="16sp"-->
+<!--                                    android:gravity="center"-->
+<!--                                    android:paddingTop="8dp" />-->
+
+<!--                                <TextView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:text="Online Training with practical by PCB TECH"-->
+<!--                                    android:textColor="@color/blue"-->
+<!--                                    android:textSize="14sp"-->
+<!--                                    android:gravity="center"-->
+<!--                                    android:paddingTop="4dp" />-->
+
+<!--                                <Button-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:text="View Course"-->
+<!--                                    android:backgroundTint="@color/blue"-->
+<!--                                    android:textColor="@android:color/white"-->
+<!--                                    android:layout_gravity="center"-->
+<!--                                    android:paddingHorizontal="16dp"-->
+<!--                                    android:paddingVertical="4dp"-->
+<!--                                    android:layout_marginTop="8dp" />-->
+<!--                            </LinearLayout>-->
+<!--                            &lt;!&ndash; Card 1 &ndash;&gt;-->
+<!--                            <LinearLayout-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_columnWeight="1"-->
+<!--                                android:orientation="vertical"-->
+<!--                                android:layout_margin="5dp"-->
+<!--                                android:background="@drawable/card_background"-->
+<!--                                android:padding="16dp"-->
+<!--                                android:gravity="center">-->
+
+<!--                                <ImageView-->
+<!--                                    android:layout_width="100dp"-->
+<!--                                    android:layout_height="100dp"-->
+<!--                                    android:src="@drawable/refrigerator_image"-->
+<!--                                    android:layout_gravity="center" />-->
+
+<!--                                <TextView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:text="Microwave/Oven PCB Repair Course"-->
+<!--                                    android:textColor="@color/black"-->
+<!--                                    android:textStyle="bold"-->
+<!--                                    android:textSize="16sp"-->
+<!--                                    android:gravity="center"-->
+<!--                                    android:paddingTop="8dp" />-->
+
+<!--                                <TextView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:text="Online Training with practical by PCB TECH"-->
+<!--                                    android:textColor="@color/blue"-->
+<!--                                    android:textSize="14sp"-->
+<!--                                    android:gravity="center"-->
+<!--                                    android:paddingTop="4dp" />-->
+
+<!--                                <Button-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:text="Upcoming...."-->
+<!--                                    android:backgroundTint="@color/blue"-->
+<!--                                    android:textColor="@android:color/white"-->
+<!--                                    android:layout_gravity="center"-->
+<!--                                    android:paddingHorizontal="16dp"-->
+<!--                                    android:paddingVertical="4dp"-->
+<!--                                    android:layout_marginTop="8dp" />-->
+<!--                            </LinearLayout>-->
+
+<!--                            &lt;!&ndash; Card 2 &ndash;&gt;-->
+<!--                            <LinearLayout-->
+<!--                                android:layout_width="0dp"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_columnWeight="1"-->
+<!--                                android:orientation="vertical"-->
+<!--                                android:layout_margin="5dp"-->
+<!--                                android:background="@drawable/card_background"-->
+<!--                                android:padding="16dp"-->
+<!--                                android:gravity="center">-->
+
+<!--                                <ImageView-->
+<!--                                    android:layout_width="100dp"-->
+<!--                                    android:layout_height="100dp"-->
+<!--                                    android:src="@drawable/washing_machine_image"-->
+<!--                                    android:contentDescription="Washing Machine PCB Image"-->
+<!--                                    android:layout_gravity="center" />-->
+
+<!--                                <TextView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:text="Inverter Welding Machine Course"-->
+<!--                                    android:textColor="@color/black"-->
+<!--                                    android:textStyle="bold"-->
+<!--                                    android:textSize="16sp"-->
+<!--                                    android:gravity="center"-->
+<!--                                    android:paddingTop="8dp" />-->
+
+<!--                                <TextView-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:text="Online Training with practical by PCB TECH"-->
+<!--                                    android:textColor="@color/blue"-->
+<!--                                    android:textSize="14sp"-->
+<!--                                    android:gravity="center"-->
+<!--                                    android:paddingTop="4dp" />-->
+
+<!--                                <Button-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:text="Upcoming...."-->
+<!--                                    android:backgroundTint="@color/blue"-->
+<!--                                    android:textColor="@android:color/white"-->
+<!--                                    android:layout_gravity="center"-->
+<!--                                    android:paddingHorizontal="16dp"-->
+<!--                                    android:paddingVertical="4dp"-->
+<!--                                    android:layout_marginTop="8dp" />-->
+<!--                            </LinearLayout>-->
+
+<!--                            &lt;!&ndash; Add Card 3 and Card 4 similarly &ndash;&gt;-->
+
+<!--                        </GridLayout>-->
+
+<!--                    </LinearLayout>-->
+
+
+
+
                     <ImageView
                         android:id="@+id/upcomingcourse"
                         android:layout_width="0dp"
@@ -387,6 +602,7 @@
                         android:adjustViewBounds="true"
                         android:scaleType="fitCenter"
                         android:src="@drawable/courseupcoming" />
+
 
 
                 </LinearLayout>
@@ -882,6 +1098,7 @@
                     android:textSize="17sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/viewAllsoftware"

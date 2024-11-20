@@ -8,17 +8,22 @@ public class User {
     private String email;
 
     private String access2;
+    private String waccess;
+    private String raccess;
 
     public User(){}
 
 
-    public User(String name, String number, String access, String uid, String email,String access2) {
+    public User(String name, String number, String access, String uid, String email,String access2,String waccess,String raccess) {
         this.name = name;
         this.number = number;
         this.access = access;
         this.uid = uid;
         this.email = email;
         this.access2 = access2;
+        this.waccess = waccess;
+        this.raccess = raccess;
+
     }
 
 
@@ -71,5 +76,21 @@ public class User {
 
     public void setAccess2(String access2) {
         this.access2 = access2;
+    }
+
+    public String getWaccess() {
+        return waccess;
+    }
+
+    public void setWaccess(String waccess) {
+        this.waccess = waccess;
+    }
+
+    public String getRaccess() {
+        return raccess;
+    }
+
+    public void setRaccess(String raccess) {
+        this.raccess = raccess;
     }
 }
