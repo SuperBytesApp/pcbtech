@@ -70,9 +70,7 @@ class RefigiratorCourseActivity : AppCompatActivity() {
                     amount = "7000"
                     binding.courseprice.text = "₹7000/- Including GST"
 
-
                     // phone pay payment gateway
-
                     phonepeCall()
 
                 } else {
