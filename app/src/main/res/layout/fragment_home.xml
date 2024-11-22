@@ -342,33 +342,195 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/imageView8"
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:adjustViewBounds="true"
-                        android:src="@drawable/newcourseone"
-                        app:layout_constraintEnd_toStartOf="@+id/titlee"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:lottie_autoPlay="true" />
+                        android:background="@drawable/card_background"
+                        android:padding="10dp"
+                        android:layout_margin="8dp"
+                        android:elevation="4dp">
 
-                    <View
-                        android:id="@+id/titlee"
+                        <!-- ImageView for the circuit image -->
+                        <ImageView
+                            android:id="@+id/image_course_main"
+                            android:layout_width="65dp"
+                            android:layout_height="65dp"
+                            android:layout_alignParentStart="true"
+                            android:src="@drawable/inverterphoto"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitCenter" />
+
+                        <!-- Title TextView -->
+                        <TextView
+                            android:id="@+id/title_course_main"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/image_course_main"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginTop="8dp"
+                            android:text="Inverter AC PCB Repair Course"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="#000000"/>
+
+                        <!-- Subtitle TextView -->
+                        <TextView
+                            android:id="@+id/subtitle_course_main"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/title_course_main"
+                            android:layout_toEndOf="@id/image_course_main"
+                            android:layout_marginStart="11dp"
+                            android:layout_marginTop="4dp"
+                            android:textAlignment="center"
+                            android:fontFamily="@font/medium"
+                            android:text="Online Training with practical by PCB TECH"
+                            android:textSize="13sp"
+                            android:textColor="#1E3AFE"/>
+
+                        <!-- Rounded Button -->
+                        <Button
+                            android:id="@+id/button_course_details_main"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_below="@id/image_course_main"
+                            android:layout_marginTop="12dp"
+                            android:layout_centerHorizontal="true"
+                            android:text="View Course Details"
+                            android:textSize="11sp"
+                            android:textColor="#FFFFFF"
+                            android:background="@drawable/button_background"/>
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                       android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/card_background"
+                        android:padding="10dp"
+                        android:layout_margin="8dp"
+                        android:elevation="4dp">
+
+                        <!-- ImageView for the circuit image -->
+                        <ImageView
+                            android:id="@+id/image_course"
+                            android:layout_width="70dp"
+                            android:layout_height="65dp"
+                            android:layout_alignParentStart="true"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/refigphoto" />
+
+                        <!-- Title TextView -->
+                        <TextView
+                            android:id="@+id/title_course"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/image_course"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginTop="8dp"
+                            android:text="Refrigerator PCB Repair Course"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="#000000"/>
+
+                        <!-- Subtitle TextView -->
+                        <TextView
+                            android:id="@+id/subtitle_course"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/title_course"
+                            android:layout_toEndOf="@id/image_course"
+                            android:layout_marginStart="11dp"
+                            android:textAlignment="center"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/medium"
+                            android:text="Online Training with practical by PCB TECH"
+                            android:textSize="13sp"
+                            android:textColor="#1E3AFE"/>
+
+                        <!-- Rounded Button -->
+                        <Button
+                            android:id="@+id/button_course_details"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_below="@id/image_course"
+                            android:layout_marginTop="12dp"
+                            android:layout_centerHorizontal="true"
+                            android:text="View Course Details"
+                            android:textSize="11sp"
+                            android:textColor="#FFFFFF"
+                            android:background="@drawable/button_background"/>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:layout_marginBottom="15dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent" />
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/card_background"
+                        android:padding="10dp"
+                        android:layout_margin="8dp"
+                        android:elevation="4dp">
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                        <!-- ImageView for the circuit image -->
+                        <ImageView
+                            android:id="@+id/image_course_2"
+                            android:layout_width="70dp"
+                            android:layout_height="65dp"
+                            android:layout_alignParentStart="true"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/washingphoto" />
+
+                        <!-- Title TextView -->
+                        <TextView
+                            android:id="@+id/title_course_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/image_course_2"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginTop="8dp"
+                            android:text="Washing machine PCB Repair Course"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="#000000"/>
+
+                        <!-- Subtitle TextView -->
+                        <TextView
+                            android:id="@+id/subtitle_course_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/title_course_2"
+                            android:layout_toEndOf="@id/image_course_2"
+                            android:layout_marginStart="11dp"
+                            android:layout_marginTop="4dp"
+                            android:textAlignment="center"
+                            android:fontFamily="@font/medium"
+                            android:text="Online Training with practical by PCB TECH"
+                            android:textSize="13sp"
+                            android:textColor="#1E3AFE"/>
+
+                        <!-- Rounded Button -->
+                        <Button
+                            android:id="@+id/button_course_details_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_below="@id/image_course_2"
+                            android:layout_marginTop="12dp"
+                            android:layout_centerHorizontal="true"
+                            android:text="View Course Details"
+                            android:textSize="11sp"
+                            android:textColor="#FFFFFF"
+                            android:background="@drawable/button_background"/>
+                    </RelativeLayout>
+
+
+
+
+            </LinearLayout>
 
 
                 <LinearLayout

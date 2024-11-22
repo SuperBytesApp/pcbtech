@@ -116,7 +116,7 @@ class RefigiratorCourseActivity : AppCompatActivity() {
                     // Do something with the user object
                     user?.let {
 
-                        if (it.waccess != "full"){ binding.coursebuy.visibility = View.VISIBLE }else{
+                        if (it.raccess != "full"){ binding.coursebuy.visibility = View.VISIBLE }else{
                             loadfrag()
                         }
 
@@ -145,7 +145,7 @@ class RefigiratorCourseActivity : AppCompatActivity() {
         val documentReference = db.collection(collectionName).document(uid)
 
         val data = hashMapOf(
-            "waccess" to "full",
+            "raccess" to "full",
             "uid" to uid
         )
         documentReference.set(data)

@@ -16,6 +16,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.firestore.FirebaseFirestore
+import com.pcbtraining.pcb.RefigiratorCourseActivity
 import com.pcbtraining.pcb.activity.AllDiagrampdfActivity
 import com.pcbtraining.pcb.activity.CourseBuyActivity
 import com.pcbtraining.pcb.activity.LoginActivity
@@ -112,8 +113,16 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireContext(), CourseBuyActivity::class.java)
             startActivity(intent)
         }
-         binding.titlee.setOnClickListener {
+         binding.buttonCourseDetailsMain.setOnClickListener {
             val intent = Intent(requireContext(), CourseBuyActivity::class.java)
+            startActivity(intent)
+        }
+        binding.buttonCourseDetails.setOnClickListener {
+            val intent = Intent(requireContext(), RefigiratorCourseActivity::class.java)
+            startActivity(intent)
+        }
+       binding.buttonCourseDetails2.setOnClickListener {
+            val intent = Intent(requireContext(), WashingMCourseActivity::class.java)
             startActivity(intent)
         }
         binding.account.setOnClickListener {
