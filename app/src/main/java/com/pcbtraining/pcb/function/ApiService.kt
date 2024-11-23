@@ -9,6 +9,15 @@ interface ApiService {
     @GET("pcbadmin/get_links.php")
     suspend fun getLinks(): List<CourseItems>
 
+     @GET("pcbadmin/rget_links.php")
+    suspend fun getLinks2(): List<CourseItems>
+
+    @GET("pcbadmin/wget_links.php")
+    suspend fun getLinks3(): List<CourseItems>
+
+
+
+
     @GET("pcbadmin/get_diag.php")
     suspend fun getDiagrams(): List<DiagramItem>
 

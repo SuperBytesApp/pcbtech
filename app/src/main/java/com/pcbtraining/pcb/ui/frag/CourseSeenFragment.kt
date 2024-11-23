@@ -39,7 +39,7 @@ class CourseSeenFragment : Fragment() {
     private lateinit var binding: FragmentCourseSeenBinding
     private lateinit var recyclerView: RecyclerView
     private lateinit var linksAdapter: LinksAdapter
-
+    private lateinit var loadingDialog: LoadingDialog  // Declare the variable
     private val apiService: ApiService by lazy {
         Retrofit.Builder()
             .baseUrl("https://pcbtech.in/")
@@ -50,7 +50,6 @@ class CourseSeenFragment : Fragment() {
     }
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -58,14 +57,31 @@ class CourseSeenFragment : Fragment() {
         binding = FragmentCourseSeenBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val loadingDialog = LoadingDialog(requireContext())
-
+        val buttonClicked = arguments?.getString("button_clicked")  // Retrieve the passed argument
+        loadingDialog = LoadingDialog(requireContext())
         loadingDialog.show()
 
-        recyclerView = root.findViewById(R.id.courserecy)
-        recyclerView.layoutManager = LinearLayoutManager(context)
+        // Call the corresponding function based on the button clicked
+        when (buttonClicked) {
+            "maincourse" -> maincourse()
+            "maincourse2" -> maincourse2()
+            "maincourse3" -> maincourse3()
+            else -> {
+                loadingDialog.dismiss()
+                // Handle error or default case if needed
+            }
+        }
+
+
+
+        return root
+    }
+
+    fun maincourse() {
+
+        binding.recyclerView.layoutManager = LinearLayoutManager(context)
         linksAdapter = LinksAdapter(requireContext(), ArrayList())
-        recyclerView.adapter = linksAdapter
+        binding.recyclerView.adapter = linksAdapter
 
         // Use CoroutineScope to launch a coroutine on the IO dispatcher
         lifecycleScope.launch(Dispatchers.IO) {
@@ -74,15 +90,71 @@ class CourseSeenFragment : Fragment() {
                 withContext(Dispatchers.Main) {
                     // Update the UI on the main thread
                     linksAdapter.updateData(result)
-                   loadingDialog.dismiss()
+                    loadingDialog.dismiss()
 
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
-               loadingDialog.dismiss()
+                loadingDialog.dismiss()
             }
         }
 
-        return root
     }
+
+    fun maincourse2() {
+
+        binding.diaggramnewview.setImageResource(R.drawable.refigbanner)
+        binding.title.text = "Refrigerator PCB Online Course"
+
+        binding.recyclerView.layoutManager = LinearLayoutManager(context)
+        linksAdapter = LinksAdapter(requireContext(), ArrayList())
+        binding.recyclerView.adapter = linksAdapter
+
+        // Use CoroutineScope to launch a coroutine on the IO dispatcher
+        lifecycleScope.launch(Dispatchers.IO) {
+            try {
+                val result = apiService.getLinks2()
+                withContext(Dispatchers.Main) {
+                    // Update the UI on the main thread
+                    linksAdapter.updateData(result)
+                    loadingDialog.dismiss()
+
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+                loadingDialog.dismiss()
+            }
+        }
+
+    }
+
+    fun maincourse3() {
+
+        binding.diaggramnewview.setImageResource(R.drawable.washbanner)
+        binding.title.text = "Inverter Washing Machine PCB Online Course"
+
+
+        binding.recyclerView.layoutManager = LinearLayoutManager(context)
+        linksAdapter = LinksAdapter(requireContext(), ArrayList())
+        binding.recyclerView.adapter = linksAdapter
+
+        // Use CoroutineScope to launch a coroutine on the IO dispatcher
+        lifecycleScope.launch(Dispatchers.IO) {
+            try {
+                val result = apiService.getLinks3()
+                withContext(Dispatchers.Main) {
+                    // Update the UI on the main thread
+                    linksAdapter.updateData(result)
+                    loadingDialog.dismiss()
+
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+                loadingDialog.dismiss()
+            }
+        }
+
+    }
+
+
 }

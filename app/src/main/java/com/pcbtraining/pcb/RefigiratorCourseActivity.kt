@@ -193,19 +193,17 @@ class RefigiratorCourseActivity : AppCompatActivity() {
     fun loadfrag(){
 
 
+        // Example from Activity or Fragment
+        val fragment = CourseSeenFragment()
+        val bundle = Bundle()
+        bundle.putString("button_clicked", "maincourse2")  // Use "maincourse2" or "maincourse3" for other buttons
+        fragment.arguments = bundle
 
-        val fragmentManager: FragmentManager = supportFragmentManager
-        val transaction: FragmentTransaction = fragmentManager.beginTransaction()
-
-        val targetFragment = CourseSeenFragment()
-
-
-        // Replace the current fragment with the target fragment
-        transaction.replace(R.id.coursefrag, targetFragment)
-        transaction.addToBackStack(null) // Add to back stack to handle back navigation
-        transaction.commit()
-
-
+       // Replace fragment (example code, adjust according to your navigation logic)
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.coursefrag, fragment)
+            .addToBackStack(null)
+            .commit()
 
 
     }
