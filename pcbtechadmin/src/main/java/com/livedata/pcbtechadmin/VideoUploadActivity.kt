@@ -81,10 +81,20 @@ class VideoUploadActivity : AppCompatActivity() {
         }
 
         binding.upload.setOnClickListener {
-            intent = Intent(this,WebUpoadActivity::class.java)
-            startActivity(intent)
+            val selectedOption: Int = when {
+                binding.radioButton1.isChecked -> 1
+                binding.radioButton2.isChecked -> 2
+                binding.radioButton3.isChecked -> 3
+                else -> -1  // Default or no selection
+            }
 
+            // Create an intent and pass the data
+            val intent = Intent(this, WebUpoadActivity::class.java).apply {
+                putExtra("option", selectedOption)  // Pass data with key "option"
+            }
+            startActivity(intent)
         }
+
 
         binding.copy.setOnClickListener {
 

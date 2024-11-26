@@ -68,10 +68,14 @@ class UserAdapter(private val userList: List<User>, var activity: Int ) :
                 val newPasswordEditText = dialogView.findViewById<EditText>(R.id.newPasswordEditText)
                 val access = dialogView.findViewById<Switch>(R.id.Access)
                 val accesst = dialogView.findViewById<Switch>(R.id.Access2)
+                val raccess = dialogView.findViewById<Switch>(R.id.Access3)
+                val waccesst = dialogView.findViewById<Switch>(R.id.Access4)
                 val newValidityEditText = dialogView.findViewById<EditText>(R.id.phone)
 
                 var access1 = ""
                 var access2 = ""
+                var waccess = ""
+                var raaccess = ""
 
                 // Pre-fill the edit text fields with the current user data
                 newNameEditText.setText(user.name)
@@ -100,6 +104,26 @@ class UserAdapter(private val userList: List<User>, var activity: Int ) :
                     access2 =  "min"
                 }
 
+               if(user.waccess == "full")
+                {
+                    waccesst.isChecked = true
+                    waccess =  "full"
+                } else
+                {
+                    waccesst.isChecked = false
+                    waccess =  "min"
+                }
+
+               if(user.raccess == "full")
+                {
+                    raccess.isChecked = true
+                    raaccess =  "full"
+                } else
+                {
+                    raccess.isChecked = false
+                    raaccess =  "min"
+                }
+
                 access.setOnCheckedChangeListener { _, isChecked ->
                     // Update the model with the new state
                     access1 = if(isChecked){ "full" }else{ "min" }
@@ -113,6 +137,19 @@ class UserAdapter(private val userList: List<User>, var activity: Int ) :
                 }
 
 
+                waccesst.setOnCheckedChangeListener { _, isChecked ->
+                    // Update the model with the new state
+                    waccess = if(isChecked){ "full" }else{ "min" }
+
+                }
+
+                raccess.setOnCheckedChangeListener { _, isChecked ->
+                    // Update the model with the new state
+                    raaccess = if(isChecked){ "full" }else{ "min" }
+
+                }
+
+
                 alertDialog.setView(dialogView)
                     .setPositiveButton("Save") { _, _ ->
                         val newName = newNameEditText.text.toString()
@@ -121,9 +158,11 @@ class UserAdapter(private val userList: List<User>, var activity: Int ) :
                         val newValidity = newValidityEditText.text.toString()
                         var access = access1
                         var acc2 = access2
+                        var wash = waccess
+                        var ref = raaccess
 
                         // Update the user data in Firestore
-                        updateUserInFirestore(user, newName, newEmail, newPassword, newValidity,access,acc2)
+                        updateUserInFirestore(user, newName, newEmail, newPassword, newValidity,access,acc2,wash,ref)
                     }
                     .setNegativeButton("Cancel") { dialog, _ ->
                         dialog.cancel()
@@ -157,7 +196,7 @@ class UserAdapter(private val userList: List<User>, var activity: Int ) :
     }
 
 
-    private fun updateUserInFirestore(user: User, newName: String, newEmail: String, newPassword: String, newValidity: String,access : String,access2 : String) {
+    private fun updateUserInFirestore(user: User, newName: String, newEmail: String, newPassword: String, newValidity: String,access : String,access2 : String,wash : String,ref : String) {
         firestore = FirebaseFirestore.getInstance()
 
         // Store user data in Firestore
@@ -168,7 +207,9 @@ class UserAdapter(private val userList: List<User>, var activity: Int ) :
             "password" to newPassword,
             "uid" to user.uid,
             "access" to access,
-            "access2" to access2
+            "access2" to access2,
+            "waccess" to wash,
+            "raccess" to ref
         )
 
         firestore.collection("users")

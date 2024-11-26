@@ -8,6 +8,8 @@ data class User(
         val number: String = "",
         val access: String = "" ,
         val access2: String = "" ,
-        val uid : String = ""
+        val uid : String = "",
+        val waccess: String = "",
+        val raccess: String = ""
 
 )
