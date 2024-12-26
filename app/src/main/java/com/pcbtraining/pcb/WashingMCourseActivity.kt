@@ -175,44 +175,6 @@ class WashingMCourseActivity : AppCompatActivity() {
                     // auth.currentUser?.uid?.let { coursedb(it) }
                 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 "PAYMENT_ERROR" -> {
                     handleTransactionError("Payment Failed")
                 }
