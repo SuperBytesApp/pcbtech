@@ -3,6 +3,7 @@ package com.pcbtraining.pcb
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.res.Configuration
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Base64
@@ -59,6 +60,10 @@ class WashingMCourseActivity : AppCompatActivity() {
         db.document("admin/admin").get()
             .addOnSuccessListener { document ->
                 if (document.exists()) {
+
+                    val amount1 = document.getString("wamount")
+                    amount = amount1.toString()
+
                     binding.courseprice.text = "₹$amount/- Including GST"
                     phonepeCall()
                 } else {
@@ -172,7 +177,7 @@ class WashingMCourseActivity : AppCompatActivity() {
             when (status) {
                 "PAYMENT_SUCCESS" -> {
                     Toast.makeText(this, "Payment Successful", Toast.LENGTH_LONG).show()
-                    // auth.currentUser?.uid?.let { coursedb(it) }
+                     auth.currentUser?.uid?.let { coursedb(it) }
                 }
 
                 "PAYMENT_ERROR" -> {
@@ -244,12 +249,13 @@ class WashingMCourseActivity : AppCompatActivity() {
 
 
     private fun coursedb(uid: String) {
-        val data = hashMapOf("waccess" to "full", "uid" to uid)
+        val data = hashMapOf("waccess" to "", "uid" to uid)
         db.collection("users").document(uid).set(data)
             .addOnSuccessListener {
                 Toast.makeText(this, "Course Bought Successfully", Toast.LENGTH_SHORT).show()
                 addPaymentHistory(uid, amount, "Inverter Washing Machine PCB Online Course")
                 saveDataToDatabase()
+                openWhatsAppChat()
             }
             .addOnFailureListener { e ->
                 Toast.makeText(this, e.localizedMessage, Toast.LENGTH_SHORT).show()
@@ -295,6 +301,35 @@ class WashingMCourseActivity : AppCompatActivity() {
         }
     }
 
+
+
+
+    fun openWhatsAppChat() {
+        try {
+
+            val message = "My payment is successful in PCBTech app"
+            val phoneNumber = "+917520867718"
+
+            // Construct the URI for WhatsApp chat with a message
+            val uri = Uri.parse("https://api.whatsapp.com/send?phone=$phoneNumber&text=${Uri.encode(message)}")
+
+            // Create an intent to open WhatsApp
+            val intent = Intent(Intent.ACTION_VIEW).apply {
+                data = uri
+                setPackage("com.whatsapp") // Ensures the intent is opened in WhatsApp
+            }
+
+            // Check if WhatsApp is installed
+            if (intent.resolveActivity(this.packageManager) != null) {
+                this.startActivity(intent)
+            } else {
+                Toast.makeText(this, "WhatsApp is not installed on this device", Toast.LENGTH_SHORT).show()
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            Toast.makeText(this, "Unable to open WhatsApp", Toast.LENGTH_SHORT).show()
+        }
+    }
 
 
 }

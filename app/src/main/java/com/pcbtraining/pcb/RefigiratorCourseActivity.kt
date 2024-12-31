@@ -3,6 +3,7 @@ package com.pcbtraining.pcb
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.res.Configuration
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Base64
@@ -66,9 +67,9 @@ class RefigiratorCourseActivity : AppCompatActivity() {
             .addOnSuccessListener { document ->
                 if (document.exists()) {
                     // DocumentSnapshot data may be null if the document exists but has no fields
-                    val amount1 = document.getString("amount")
-                    amount = "7000"
-                    binding.courseprice.text = "₹7000/- Including GST"
+                    val amount1 = document.getString("ramount")
+                    amount = amount1.toString()
+                    binding.courseprice.text =  "₹$amount/- Including GST"
 
                     // phone pay payment gateway
                     phonepeCall()
@@ -145,20 +146,22 @@ class RefigiratorCourseActivity : AppCompatActivity() {
         val documentReference = db.collection(collectionName).document(uid)
 
         val data = hashMapOf(
-            "raccess" to "full",
+            "raccess" to "",
             "uid" to uid
         )
+
         documentReference.set(data)
             .addOnSuccessListener {
 
                 Toast.makeText(this@RefigiratorCourseActivity, "Course Buy Successfully", Toast.LENGTH_SHORT).show()
 
                 val uid = uid // Replace with the actual user ID
-                val price = "7000" // Replace with the actual price
+                val price = amount // Replace with the actual price
                 val title = "Refrigerator PCB Online Course" // Replace with the actual product title
 
                 addPaymentHistory(uid, price, title)
                 saveDataToDatabase()
+                openWhatsAppChat()
 
             }
             .addOnFailureListener { e ->
@@ -310,9 +313,8 @@ class RefigiratorCourseActivity : AppCompatActivity() {
         if (requestCode == 1) {
             if (resultCode == RESULT_OK) {
                 Toast.makeText(this@RefigiratorCourseActivity, "Payment Successful Please Wait Don't Back..", Toast.LENGTH_LONG).show()
-
                 if (binding.email.text.isNotEmpty() && binding.password.text.isNotEmpty()) {
-                    val user = auth.currentUser!!.uid.toString()
+                val user = auth.currentUser!!.uid.toString()
                     coursedb(user)
                 } else {
                     Toast.makeText(this, "Something Wrong Contact Support Team..", Toast.LENGTH_SHORT).show()
@@ -320,7 +322,6 @@ class RefigiratorCourseActivity : AppCompatActivity() {
 
             } else {
                 Toast.makeText(this@RefigiratorCourseActivity, "Transaction Failed", Toast.LENGTH_SHORT).show()
-
                 intent = Intent(this, RefigiratorCourseActivity::class.java)
                 startActivity(intent)
             }
@@ -379,6 +380,34 @@ class RefigiratorCourseActivity : AppCompatActivity() {
 
 
     }
+
+    fun openWhatsAppChat() {
+        try {
+
+            val message = "My payment is successful in PCBTech app"
+            val phoneNumber = "+917520867718"
+
+            // Construct the URI for WhatsApp chat with a message
+            val uri = Uri.parse("https://api.whatsapp.com/send?phone=$phoneNumber&text=${Uri.encode(message)}")
+
+            // Create an intent to open WhatsApp
+            val intent = Intent(Intent.ACTION_VIEW).apply {
+                data = uri
+                setPackage("com.whatsapp") // Ensures the intent is opened in WhatsApp
+            }
+
+            // Check if WhatsApp is installed
+            if (intent.resolveActivity(this.packageManager) != null) {
+                this.startActivity(intent)
+            } else {
+                Toast.makeText(this, "WhatsApp is not installed on this device", Toast.LENGTH_SHORT).show()
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            Toast.makeText(this, "Unable to open WhatsApp", Toast.LENGTH_SHORT).show()
+        }
+    }
+
 
 
 }

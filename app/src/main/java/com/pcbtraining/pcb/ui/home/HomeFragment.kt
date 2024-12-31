@@ -33,7 +33,9 @@ import com.pcbtraining.pcb.adapter.ProductAdapter
 import com.pcbtraining.pcb.databinding.FragmentHomeBinding
 import com.pcbtraining.pcb.model.Product
 import com.pcbtraining.pcb.model.User
+import com.pcbtraining.pcb.ui.RefigDiaActivity
 import com.pcbtraining.pcb.ui.frag.TestPointActivity
+import com.pcbtraining.pcb.washdiaActivity
 
 class HomeFragment : Fragment() {
 
@@ -118,11 +120,11 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
         binding.buttonCourseDetails.setOnClickListener {
-            val intent = Intent(requireContext(), RefigiratorCourseActivity::class.java)
+            val intent = Intent(requireContext(), RefigDiaActivity::class.java)
             startActivity(intent)
         }
        binding.buttonCourseDetails2.setOnClickListener {
-            val intent = Intent(requireContext(), WashingMCourseActivity::class.java)
+            val intent = Intent(requireContext(), washdiaActivity::class.java)
             startActivity(intent)
         }
         binding.account.setOnClickListener {
